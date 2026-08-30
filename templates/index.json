@@ -302,8 +302,38 @@
         "heading": "What Are You Looking For Today?"
       }
     },
-    "1788112256538f4d38": {
+    "1788112605ac1cbb25": {
       "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_b1e0568_ADRbm6": {
+          "type": "ai_gen_block_b1e0568",
+          "settings": {
+            "heading": "Best Sellers",
+            "subheading": "Thoughtfully chosen essentials for your everyday wellness routine.",
+            "collection": "",
+            "product_count": 4,
+            "add_button_label": "Add to cart",
+            "view_button_label": "View product",
+            "desktop_width_percent": 100,
+            "columns_desktop": "4",
+            "columns_mobile": "2",
+            "text_alignment": "center",
+            "background_color": "#F7F8F3",
+            "heading_color": "#24352B",
+            "text_color": "#4B5B50",
+            "button_color": "#365542",
+            "button_text_color": "#FFFFFF",
+            "section_padding": 60,
+            "image_radius": 12,
+            "button_radius": 6,
+            "heading_size": 42
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_b1e0568_ADRbm6"
+      ],
       "settings": {}
     }
   },
@@ -311,12 +341,12 @@
     "hero",
     "why_nirvritti_c6RUGc",
     "shop_fit_root_W3XKXc",
+    "1788112605ac1cbb25",
     "fit_root_story_7VEB4a",
     "brand_story_KaKRCt",
     "cupid_gifting_76Ve44",
     "ingredients_quality_RxhD7G",
     "kids_collection_8VN8hz",
-    "shop_by_lifestyle_PdN6AH",
-    "1788112256538f4d38"
+    "shop_by_lifestyle_PdN6AH"
   ]
 }
