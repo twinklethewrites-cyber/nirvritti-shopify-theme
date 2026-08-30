@@ -110,6 +110,7 @@
         "category_xFM6kW": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/6.webp",
             "title": "Care",
             "text": "Golden Care",
             "link": ""
