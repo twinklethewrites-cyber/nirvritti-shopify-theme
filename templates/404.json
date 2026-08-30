@@ -9,17 +9,33 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "main-404",
-      "settings": {}
-    },
     "1788123287d09ccb25": {
       "type": "_blocks",
       "blocks": {
+        "ai_gen_block_5e9a82e_QRJnjw": {
+          "type": "ai_gen_block_5e9a82e",
+          "settings": {
+            "eyebrow": "The Nirvritti story",
+            "heading": "Thoughtfully made chocolate",
+            "description": "<p>Discover handcrafted chocolates made with carefully chosen ingredients, joyful flavours and a little everyday indulgence.</p>",
+            "desktop_width_percent": 100,
+            "content_width": 800,
+            "alignment": "center",
+            "padding_top": 50,
+            "padding_bottom": 50,
+            "heading_size": 36,
+            "text_size": 17,
+            "background_color": "#D0E9C0",
+            "heading_color": "#3B2118",
+            "text_color": "#4A332B",
+            "accent_color": "#7A351D"
+          },
+          "blocks": {}
+        },
         "ai_gen_block_4d4c90d_kdUCrj": {
           "type": "ai_gen_block_4d4c90d",
           "settings": {
-            "heading": "All products",
+            "heading": "",
             "show_count": true,
             "product_limit": 24,
             "columns_desktop": "3",
@@ -37,13 +53,19 @@
         }
       },
       "block_order": [
+        "ai_gen_block_5e9a82e_QRJnjw",
         "ai_gen_block_4d4c90d_kdUCrj"
       ],
+      "settings": {}
+    },
+    "main": {
+      "type": "main-404",
+      "disabled": true,
       "settings": {}
     }
   },
   "order": [
-    "main",
-    "1788123287d09ccb25"
+    "1788123287d09ccb25",
+    "main"
   ]
 }
