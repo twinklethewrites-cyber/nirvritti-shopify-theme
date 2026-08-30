@@ -134,6 +134,18 @@
         "subheading": "One chocolate concept, four ways to enjoy it."
       }
     },
+    "fit_root_story_7VEB4a": {
+      "type": "fit-root-story",
+      "name": "FIT-ROOT Story",
+      "settings": {
+        "image_position": "left",
+        "eyebrow": "The FIT-ROOT Story",
+        "heading": "More Than Chocolate.",
+        "text": "FIT-ROOT brings together chocolate and natural ingredients to create something designed for today's lifestyle.",
+        "button_label": "Discover FIT-ROOT",
+        "button_link": ""
+      }
+    },
     "brand_story_KaKRCt": {
       "type": "brand-story",
       "name": "Brand story",
@@ -154,18 +166,6 @@
         "heading": "Made for Sharing.",
         "text": "A little sweetness for the moments worth celebrating.",
         "button_label": "Shop Cupid",
-        "button_link": ""
-      }
-    },
-    "fit_root_story_7VEB4a": {
-      "type": "fit-root-story",
-      "name": "FIT-ROOT Story",
-      "settings": {
-        "image_position": "left",
-        "eyebrow": "The FIT-ROOT Story",
-        "heading": "More Than Chocolate.",
-        "text": "FIT-ROOT brings together chocolate and natural ingredients to create something designed for today's lifestyle.",
-        "button_label": "Discover FIT-ROOT",
         "button_link": ""
       }
     },
@@ -311,9 +311,9 @@
     "hero",
     "why_nirvritti_c6RUGc",
     "shop_fit_root_W3XKXc",
+    "fit_root_story_7VEB4a",
     "brand_story_KaKRCt",
     "cupid_gifting_76Ve44",
-    "fit_root_story_7VEB4a",
     "ingredients_quality_RxhD7G",
     "kids_collection_8VN8hz",
     "shop_by_lifestyle_PdN6AH",
