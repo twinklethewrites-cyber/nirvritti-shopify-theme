@@ -400,6 +400,48 @@
         "handle_link": "https://www.instagram.com/nirvritti.chocolates.agpl/",
         "button_label": "Follow on Instagram"
       }
+    },
+    "testimonials_GjAQnz": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_8xU9GU": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "Really something innovative. Nice taste — a good alternative for chocolates.",
+            "name": "Verified Google Review",
+            "location": "Nirvritti Chocolates, Google Business Profile"
+          }
+        },
+        "testimonial_r4bctb": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "Replace this placeholder with a genuine customer testimonial before launch.",
+            "name": "Demo Customer",
+            "location": "Demo content"
+          }
+        },
+        "testimonial_bHcjmw": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "quote": "Replace this placeholder with a genuine customer testimonial before launch.",
+            "name": "Demo Customer",
+            "location": "Demo content"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_8xU9GU",
+        "testimonial_r4bctb",
+        "testimonial_bHcjmw"
+      ],
+      "name": "Testimonials",
+      "settings": {
+        "eyebrow": "Loved By Customers",
+        "heading": "What People Are Saying"
+      }
     }
   },
   "order": [
@@ -413,6 +455,7 @@
     "cupid_gifting_76Ve44",
     "ingredients_quality_RxhD7G",
     "brand_story_KaKRCt",
-    "social_instagram_tA4fPE"
+    "social_instagram_tA4fPE",
+    "testimonials_GjAQnz"
   ]
 }
