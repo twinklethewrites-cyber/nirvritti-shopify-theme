@@ -92,6 +92,7 @@
         "category_Fbyz3U": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/5.webp",
             "title": "Love",
             "text": "Cupid",
             "link": ""
