@@ -1,6 +1,52 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "main": { "type": "main-page" }
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    },
+    "17881203691cede976": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_5553a5f_DTQgkz": {
+          "type": "ai_gen_block_5553a5f",
+          "settings": {
+            "heading": "Contact us",
+            "phone_label": "Phone",
+            "phone_number": "+91 91195 96964",
+            "address_label": "Address",
+            "address": "Reti Bunder Road, near vaillankani school, Dombivli, Thakurwadi, Dombivli West, Kalyan, Maharashtra 421202",
+            "desktop_width_percent": 100,
+            "padding": 28,
+            "mobile_padding": 20,
+            "border_radius": 12,
+            "heading_size": 26,
+            "background_color": "#FFFFFF",
+            "border_color": "#D9D9D9",
+            "heading_color": "#1F1F1F",
+            "text_color": "#333333",
+            "label_color": "#555555",
+            "icon_color": "#333333"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_5553a5f_DTQgkz"
+      ],
+      "settings": {}
+    }
   },
-  "order": ["main"]
+  "order": [
+    "main",
+    "17881203691cede976"
+  ]
 }
