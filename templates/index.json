@@ -178,6 +178,7 @@
       "type": "fit-root-story",
       "name": "FIT-ROOT Story",
       "settings": {
+        "image": "shopify://shop_images/all_p.webp",
         "image_position": "left",
         "eyebrow": "The FIT-ROOT Story",
         "heading": "More Than Chocolate.",
