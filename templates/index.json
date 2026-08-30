@@ -243,6 +243,7 @@
       "type": "kids-collection",
       "name": "Kids collection",
       "settings": {
+        "image": "shopify://shop_images/9.webp",
         "eyebrow": "Kids Collection",
         "heading": "Little Ones. Big Smiles.",
         "text": "Fun shapes, playful packaging and chocolate made with natural ingredients.",
