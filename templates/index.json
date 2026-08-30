@@ -44,11 +44,219 @@
         "button_label": "Shop Cupid",
         "button_link": ""
       }
+    },
+    "fit_root_story_7VEB4a": {
+      "type": "fit-root-story",
+      "name": "FIT-ROOT Story",
+      "settings": {
+        "image_position": "left",
+        "eyebrow": "The FIT-ROOT Story",
+        "heading": "More Than Chocolate.",
+        "text": "FIT-ROOT brings together chocolate and natural ingredients to create something designed for today's lifestyle.",
+        "button_label": "Discover FIT-ROOT",
+        "button_link": ""
+      }
+    },
+    "ingredients_quality_RxhD7G": {
+      "type": "ingredients-quality",
+      "blocks": {
+        "claim_8tWqYB": {
+          "type": "claim",
+          "settings": {
+            "icon": "leaf",
+            "text": "15 Natural Ingredients"
+          }
+        },
+        "claim_R6yzEb": {
+          "type": "claim",
+          "settings": {
+            "icon": "shield",
+            "text": "No Preservatives"
+          }
+        },
+        "claim_YCfdmp": {
+          "type": "claim",
+          "settings": {
+            "icon": "no-sugar",
+            "text": "No Artificial Flavour"
+          }
+        },
+        "claim_ekKcPw": {
+          "type": "claim",
+          "settings": {
+            "icon": "no-sugar",
+            "text": "No Artificial Sweeteners"
+          }
+        },
+        "claim_aFiHLY": {
+          "type": "claim",
+          "settings": {
+            "icon": "no-sugar",
+            "text": "No Palm Oil"
+          }
+        },
+        "claim_Gpp3H9": {
+          "type": "claim",
+          "settings": {
+            "icon": "no-sugar",
+            "text": "No Trans Fat"
+          }
+        },
+        "claim_QwpfCF": {
+          "type": "claim",
+          "settings": {
+            "icon": "sparkle",
+            "text": "Made With Care"
+          }
+        }
+      },
+      "block_order": [
+        "claim_8tWqYB",
+        "claim_R6yzEb",
+        "claim_YCfdmp",
+        "claim_ekKcPw",
+        "claim_aFiHLY",
+        "claim_Gpp3H9",
+        "claim_QwpfCF"
+      ],
+      "name": "Ingredients / Quality",
+      "settings": {
+        "eyebrow": "Quality You Can Trust",
+        "heading": "What's Inside Matters.",
+        "subheading": "Every FIT-ROOT pack is built around the same honest promise.",
+        "footnote": "Specific claims vary by product — see each product page for details."
+      }
+    },
+    "kids_collection_8VN8hz": {
+      "type": "kids-collection",
+      "name": "Kids collection",
+      "settings": {
+        "eyebrow": "Kids Collection",
+        "heading": "Little Ones. Big Smiles.",
+        "text": "Fun shapes, playful packaging and chocolate made with natural ingredients.",
+        "button_label": "Shop Kids Collection",
+        "button_link": ""
+      }
+    },
+    "shop_fit_root_W3XKXc": {
+      "type": "shop-fit-root",
+      "blocks": {
+        "category_ARJMtX": {
+          "type": "category",
+          "settings": {
+            "title": "Energy",
+            "text": "Beat Box & On-The-Go",
+            "link": ""
+          }
+        },
+        "category_Fbyz3U": {
+          "type": "category",
+          "settings": {
+            "title": "Love",
+            "text": "Cupid",
+            "link": ""
+          }
+        },
+        "category_pVcqpB": {
+          "type": "category",
+          "settings": {
+            "title": "Kids",
+            "text": "Tiny Cubs, Mini Hearts & Jurassic Bites",
+            "link": ""
+          }
+        },
+        "category_xFM6kW": {
+          "type": "category",
+          "settings": {
+            "title": "Care",
+            "text": "Golden Care",
+            "link": ""
+          }
+        },
+        "category_RbDbKC": {
+          "type": "category",
+          "settings": {
+            "title": "Energy",
+            "text": "Beat Box & On-The-Go",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "category_ARJMtX",
+        "category_Fbyz3U",
+        "category_pVcqpB",
+        "category_xFM6kW",
+        "category_RbDbKC"
+      ],
+      "name": "Shop FIT-ROOT",
+      "settings": {
+        "eyebrow": "The FIT-ROOT Range",
+        "heading": "Find Your FIT-ROOT",
+        "subheading": "One chocolate concept, four ways to enjoy it."
+      }
+    },
+    "shop_by_lifestyle_PdN6AH": {
+      "type": "shop-by-lifestyle",
+      "blocks": {
+        "lifestyle_Dk4984": {
+          "type": "lifestyle",
+          "settings": {
+            "icon": "bolt",
+            "title": "I Need Energy",
+            "text": "For active days and busy schedules.",
+            "link": ""
+          }
+        },
+        "lifestyle_pdUWG4": {
+          "type": "lifestyle",
+          "settings": {
+            "icon": "heart",
+            "title": "Buying for Someone Special",
+            "text": "A little sweetness for the moments worth celebrating.",
+            "link": ""
+          }
+        },
+        "lifestyle_WD7PGn": {
+          "type": "lifestyle",
+          "settings": {
+            "icon": "child",
+            "title": "Something for My Little One",
+            "text": "Fun shapes made with natural ingredients.",
+            "link": ""
+          }
+        },
+        "lifestyle_d6jhWH": {
+          "type": "lifestyle",
+          "settings": {
+            "icon": "leaf",
+            "title": "Something for Everyday Care",
+            "text": "Natural goodness for everyday moments.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "lifestyle_Dk4984",
+        "lifestyle_pdUWG4",
+        "lifestyle_WD7PGn",
+        "lifestyle_d6jhWH"
+      ],
+      "name": "Shop by lifestyle",
+      "settings": {
+        "eyebrow": "Self-Select",
+        "heading": "What Are You Looking For Today?"
+      }
     }
   },
   "order": [
     "hero",
     "brand_story_KaKRCt",
-    "cupid_gifting_76Ve44"
+    "cupid_gifting_76Ve44",
+    "fit_root_story_7VEB4a",
+    "ingredients_quality_RxhD7G",
+    "kids_collection_8VN8hz",
+    "shop_fit_root_W3XKXc",
+    "shop_by_lifestyle_PdN6AH"
   ]
 }
