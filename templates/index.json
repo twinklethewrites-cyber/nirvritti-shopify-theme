@@ -119,6 +119,7 @@
         "category_RbDbKC": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/8.webp",
             "title": "Energy",
             "text": "Beat Box & On-The-Go",
             "link": ""
