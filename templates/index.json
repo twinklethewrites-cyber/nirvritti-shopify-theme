@@ -101,6 +101,7 @@
         "category_pVcqpB": {
           "type": "category",
           "settings": {
+            "image": "shopify://shop_images/2.webp",
             "title": "Kids",
             "text": "Tiny Cubs, Mini Hearts & Jurassic Bites",
             "link": ""
