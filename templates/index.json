@@ -12,6 +12,7 @@
     "hero": {
       "type": "hero",
       "settings": {
+        "image": "shopify://shop_images/hero-lifestyle-group.webp",
         "heading": "Chocolate, Reimagined by Nature.",
         "subheading": "Discover thoughtfully crafted chocolates made with natural ingredients, created for energy, wellness, little ones and life's special moments.",
         "primary_label": "Shop FIT-ROOT",
