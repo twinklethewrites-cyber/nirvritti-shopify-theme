@@ -386,7 +386,8 @@
         "image_fcCReb": {
           "type": "image",
           "settings": {
-            "link": ""
+            "image": "shopify://shop_images/13_5.webp",
+            "link": "https://www.instagram.com/p/DZphFgxsKzj/?utm_source=ig_web_copy_link&igsi=MzRlODBiNWFlZA=="
           }
         }
       },
