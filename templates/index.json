@@ -134,6 +134,40 @@
         "subheading": "One chocolate concept, four ways to enjoy it."
       }
     },
+    "1788112605ac1cbb25": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_b1e0568_ADRbm6": {
+          "type": "ai_gen_block_b1e0568",
+          "settings": {
+            "heading": "Best Sellers",
+            "subheading": "Thoughtfully chosen essentials for your everyday wellness routine.",
+            "collection": "",
+            "product_count": 4,
+            "add_button_label": "Add to cart",
+            "view_button_label": "View product",
+            "desktop_width_percent": 100,
+            "columns_desktop": "4",
+            "columns_mobile": "2",
+            "text_alignment": "center",
+            "background_color": "#F7F8F3",
+            "heading_color": "#24352B",
+            "text_color": "#4B5B50",
+            "button_color": "#365542",
+            "button_text_color": "#FFFFFF",
+            "section_padding": 60,
+            "image_radius": 12,
+            "button_radius": 6,
+            "heading_size": 42
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_b1e0568_ADRbm6"
+      ],
+      "settings": {}
+    },
     "fit_root_story_7VEB4a": {
       "type": "fit-root-story",
       "name": "FIT-ROOT Story",
@@ -146,14 +180,66 @@
         "button_link": ""
       }
     },
-    "brand_story_KaKRCt": {
-      "type": "brand-story",
-      "name": "Brand story",
+    "shop_by_lifestyle_PdN6AH": {
+      "type": "shop-by-lifestyle",
+      "blocks": {
+        "lifestyle_Dk4984": {
+          "type": "lifestyle",
+          "settings": {
+            "icon": "bolt",
+            "title": "I Need Energy",
+            "text": "For active days and busy schedules.",
+            "link": ""
+          }
+        },
+        "lifestyle_pdUWG4": {
+          "type": "lifestyle",
+          "settings": {
+            "icon": "heart",
+            "title": "Buying for Someone Special",
+            "text": "A little sweetness for the moments worth celebrating.",
+            "link": ""
+          }
+        },
+        "lifestyle_WD7PGn": {
+          "type": "lifestyle",
+          "settings": {
+            "icon": "child",
+            "title": "Something for My Little One",
+            "text": "Fun shapes made with natural ingredients.",
+            "link": ""
+          }
+        },
+        "lifestyle_d6jhWH": {
+          "type": "lifestyle",
+          "settings": {
+            "icon": "leaf",
+            "title": "Something for Everyday Care",
+            "text": "Natural goodness for everyday moments.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "lifestyle_Dk4984",
+        "lifestyle_pdUWG4",
+        "lifestyle_WD7PGn",
+        "lifestyle_d6jhWH"
+      ],
+      "name": "Shop by lifestyle",
       "settings": {
-        "logo": "shopify://shop_images/close-up-of-a-bao-bun-on-a-wooden-table.jpg",
-        "heading": "Nature's Healing Touch",
-        "text": "Nirvritti brings together thoughtful ingredients, natural inspiration and modern living to create products made with care.",
-        "button_label": "Discover Nirvritti",
+        "eyebrow": "Self-Select",
+        "heading": "What Are You Looking For Today?"
+      }
+    },
+    "kids_collection_8VN8hz": {
+      "type": "kids-collection",
+      "name": "Kids collection",
+      "settings": {
+        "eyebrow": "Kids Collection",
+        "heading": "Little Ones. Big Smiles.",
+        "text": "Fun shapes, playful packaging and chocolate made with natural ingredients.",
+        "button_label": "Shop Kids Collection",
         "button_link": ""
       }
     },
@@ -239,102 +325,72 @@
         "footnote": "Specific claims vary by product — see each product page for details."
       }
     },
-    "kids_collection_8VN8hz": {
-      "type": "kids-collection",
-      "name": "Kids collection",
+    "brand_story_KaKRCt": {
+      "type": "brand-story",
+      "name": "Brand story",
       "settings": {
-        "eyebrow": "Kids Collection",
-        "heading": "Little Ones. Big Smiles.",
-        "text": "Fun shapes, playful packaging and chocolate made with natural ingredients.",
-        "button_label": "Shop Kids Collection",
+        "logo": "shopify://shop_images/close-up-of-a-bao-bun-on-a-wooden-table.jpg",
+        "heading": "Nature's Healing Touch",
+        "text": "Nirvritti brings together thoughtful ingredients, natural inspiration and modern living to create products made with care.",
+        "button_label": "Discover Nirvritti",
         "button_link": ""
       }
     },
-    "shop_by_lifestyle_PdN6AH": {
-      "type": "shop-by-lifestyle",
+    "social_instagram_tA4fPE": {
+      "type": "social-instagram",
       "blocks": {
-        "lifestyle_Dk4984": {
-          "type": "lifestyle",
+        "image_hbbXM6": {
+          "type": "image",
           "settings": {
-            "icon": "bolt",
-            "title": "I Need Energy",
-            "text": "For active days and busy schedules.",
             "link": ""
           }
         },
-        "lifestyle_pdUWG4": {
-          "type": "lifestyle",
+        "image_JCtHhF": {
+          "type": "image",
           "settings": {
-            "icon": "heart",
-            "title": "Buying for Someone Special",
-            "text": "A little sweetness for the moments worth celebrating.",
             "link": ""
           }
         },
-        "lifestyle_WD7PGn": {
-          "type": "lifestyle",
+        "image_wQktQa": {
+          "type": "image",
           "settings": {
-            "icon": "child",
-            "title": "Something for My Little One",
-            "text": "Fun shapes made with natural ingredients.",
             "link": ""
           }
         },
-        "lifestyle_d6jhWH": {
-          "type": "lifestyle",
+        "image_WCcCXj": {
+          "type": "image",
           "settings": {
-            "icon": "leaf",
-            "title": "Something for Everyday Care",
-            "text": "Natural goodness for everyday moments.",
+            "link": ""
+          }
+        },
+        "image_wqGwx4": {
+          "type": "image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "image_fcCReb": {
+          "type": "image",
+          "settings": {
             "link": ""
           }
         }
       },
       "block_order": [
-        "lifestyle_Dk4984",
-        "lifestyle_pdUWG4",
-        "lifestyle_WD7PGn",
-        "lifestyle_d6jhWH"
+        "image_hbbXM6",
+        "image_JCtHhF",
+        "image_wQktQa",
+        "image_WCcCXj",
+        "image_wqGwx4",
+        "image_fcCReb"
       ],
-      "name": "Shop by lifestyle",
+      "name": "Social / Instagram",
       "settings": {
-        "eyebrow": "Self-Select",
-        "heading": "What Are You Looking For Today?"
+        "heading": "Follow the Nirvritti Journey",
+        "handle": "@nirvritti.chocolates.agpl",
+        "handle_link": "https://www.instagram.com/nirvritti.chocolates.agpl/",
+        "button_label": "Follow on Instagram"
       }
-    },
-    "1788112605ac1cbb25": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_b1e0568_ADRbm6": {
-          "type": "ai_gen_block_b1e0568",
-          "settings": {
-            "heading": "Best Sellers",
-            "subheading": "Thoughtfully chosen essentials for your everyday wellness routine.",
-            "collection": "",
-            "product_count": 4,
-            "add_button_label": "Add to cart",
-            "view_button_label": "View product",
-            "desktop_width_percent": 100,
-            "columns_desktop": "4",
-            "columns_mobile": "2",
-            "text_alignment": "center",
-            "background_color": "#F7F8F3",
-            "heading_color": "#24352B",
-            "text_color": "#4B5B50",
-            "button_color": "#365542",
-            "button_text_color": "#FFFFFF",
-            "section_padding": 60,
-            "image_radius": 12,
-            "button_radius": 6,
-            "heading_size": 42
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_b1e0568_ADRbm6"
-      ],
-      "settings": {}
     }
   },
   "order": [
@@ -343,10 +399,11 @@
     "shop_fit_root_W3XKXc",
     "1788112605ac1cbb25",
     "fit_root_story_7VEB4a",
-    "brand_story_KaKRCt",
+    "shop_by_lifestyle_PdN6AH",
+    "kids_collection_8VN8hz",
     "cupid_gifting_76Ve44",
     "ingredients_quality_RxhD7G",
-    "kids_collection_8VN8hz",
-    "shop_by_lifestyle_PdN6AH"
+    "brand_story_KaKRCt",
+    "social_instagram_tA4fPE"
   ]
 }
