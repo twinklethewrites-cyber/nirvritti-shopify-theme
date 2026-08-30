@@ -1,6 +1,56 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "main": { "type": "main-product" }
+    "main": {
+      "type": "main-product",
+      "settings": {}
+    },
+    "17881238209670e7ff": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_a1a8af4_eJr8VF": {
+          "type": "ai_gen_block_a1a8af4",
+          "disabled": true,
+          "settings": {
+            "heading": "You may also like",
+            "products": [],
+            "product_limit": 4,
+            "desktop_width_percent": 100,
+            "columns_desktop": "2",
+            "columns_mobile": "1",
+            "image_size": 65,
+            "image_radius": 6,
+            "card_radius": 8,
+            "section_padding": 15,
+            "heading_size": 20,
+            "title_size": 14,
+            "price_size": 13,
+            "text_color": "#222222",
+            "price_color": "#555555",
+            "card_background": "#FFFFFF",
+            "card_border_color": "#E2E2E2",
+            "card_hover_border_color": "#555555"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_a1a8af4_eJr8VF"
+      ],
+      "disabled": true,
+      "settings": {}
+    }
   },
-  "order": ["main"]
+  "order": [
+    "main",
+    "17881238209670e7ff"
+  ]
 }
