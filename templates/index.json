@@ -38,6 +38,7 @@
       "type": "cupid-gifting",
       "name": "Cupid / Gifting",
       "settings": {
+        "image": "shopify://shop_images/close-up-of-a-bao-bun-on-a-wooden-table.jpg",
         "eyebrow": "Cupid Collection",
         "heading": "Made for Sharing.",
         "text": "A little sweetness for the moments worth celebrating.",
