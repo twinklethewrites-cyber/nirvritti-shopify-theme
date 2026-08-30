@@ -248,10 +248,64 @@
         "eyebrow": "Self-Select",
         "heading": "What Are You Looking For Today?"
       }
+    },
+    "why_nirvritti_c6RUGc": {
+      "type": "why-nirvritti",
+      "blocks": {
+        "value_rkBBJA": {
+          "type": "value",
+          "settings": {
+            "icon": "leaf",
+            "title": "15 Natural Ingredients",
+            "text": "Cocoa blended with dates, almonds, seeds and more — nothing artificial.",
+            "link": ""
+          }
+        },
+        "value_NQg8hQ": {
+          "type": "value",
+          "settings": {
+            "icon": "heart",
+            "title": "Handmade With Care",
+            "text": "Freshly made in small batches and quality checked before it reaches you.",
+            "link": ""
+          }
+        },
+        "value_RKJyUj": {
+          "type": "value",
+          "settings": {
+            "icon": "shield",
+            "title": "Thoughtfully Crafted",
+            "text": "No preservatives, no artificial flavour, no palm oil.",
+            "link": ""
+          }
+        },
+        "value_3MtjeV": {
+          "type": "value",
+          "settings": {
+            "icon": "gift",
+            "title": "Something For Everyone",
+            "text": "Energy, gifting, kids and everyday care — one brand, every moment.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "value_rkBBJA",
+        "value_NQg8hQ",
+        "value_RKJyUj",
+        "value_3MtjeV"
+      ],
+      "name": "Why Nirvritti",
+      "settings": {
+        "eyebrow": "Why Nirvritti",
+        "heading": "What Makes Us Different",
+        "subheading": ""
+      }
     }
   },
   "order": [
     "hero",
+    "why_nirvritti_c6RUGc",
     "brand_story_KaKRCt",
     "cupid_gifting_76Ve44",
     "fit_root_story_7VEB4a",
