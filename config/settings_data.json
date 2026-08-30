@@ -34,7 +34,29 @@
       },
       "footer": {
         "type": "footer",
+        "blocks": {
+          "link_list_PzVxJY": {
+            "type": "link_list",
+            "disabled": true,
+            "settings": {
+              "heading": "C",
+              "menu": ""
+            }
+          },
+          "link_list_xPt4bq": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Shop",
+              "menu": "main-menu"
+            }
+          }
+        },
+        "block_order": [
+          "link_list_PzVxJY",
+          "link_list_xPt4bq"
+        ],
         "settings": {
+          "logo": "shopify://shop_images/11_1.webp",
           "about_text": "Thoughtfully crafted chocolates made with natural ingredients, for energy, wellness, little ones and life's special moments."
         }
       }
