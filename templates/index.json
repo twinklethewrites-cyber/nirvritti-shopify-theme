@@ -1,6 +1,30 @@
 {
   "sections": {
-    "hero": { "type": "hero" }
+    "hero": { "type": "hero" },
+    "why-nirvritti": { "type": "why-nirvritti" },
+    "shop-fit-root": { "type": "shop-fit-root" },
+    "best-sellers": { "type": "best-sellers" },
+    "fit-root-story": { "type": "fit-root-story" },
+    "shop-by-lifestyle": { "type": "shop-by-lifestyle" },
+    "kids-collection": { "type": "kids-collection" },
+    "cupid-gifting": { "type": "cupid-gifting" },
+    "ingredients-quality": { "type": "ingredients-quality" },
+    "brand-story": { "type": "brand-story" },
+    "testimonials": { "type": "testimonials" },
+    "social-instagram": { "type": "social-instagram" }
   },
-  "order": ["hero"]
+  "order": [
+    "hero",
+    "why-nirvritti",
+    "shop-fit-root",
+    "best-sellers",
+    "fit-root-story",
+    "shop-by-lifestyle",
+    "kids-collection",
+    "cupid-gifting",
+    "ingredients-quality",
+    "brand-story",
+    "testimonials",
+    "social-instagram"
+  ]
 }
