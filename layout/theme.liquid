@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="{{ settings.color_primary }}">
+  {% render 'meta-tags' %}
+
+  <title>
+    {{ page_title }}{% if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif %}{% if current_page != 1 %} &ndash; Page {{ current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+  </title>
+  {% if page_description %}<meta name="description" content="{{ page_description | escape }}">{% endif %}
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  {%- if settings.favicon -%}
+    <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32 }}">
+  {%- endif -%}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  {{ content_for_header }}
+
+  <style>
+    :root {
+      --color-primary: {{ settings.color_primary | default: '#173B50' }};
+      --color-secondary: {{ settings.color_secondary | default: '#62A96B' }};
+      --color-sage: {{ settings.color_sage | default: '#DCEFE7' }};
+      --color-accent: {{ settings.color_accent | default: '#4BA9C5' }};
+      --color-background: {{ settings.color_background | default: '#F7FAF8' }};
+      --color-surface: {{ settings.color_surface | default: '#FFFFFF' }};
+      --color-text: {{ settings.color_text | default: '#172126' }};
+      --color-muted: {{ settings.color_muted | default: '#667276' }};
+      --color-button-bg: {{ settings.color_button_bg | default: '#62A96B' }};
+      --color-button-text: {{ settings.color_button_text | default: '#FFFFFF' }};
+      --page-width: {{ settings.page_width | default: 1360 }}px;
+      --radius: {{ settings.border_radius | default: 10 }}px;
+      --logo-width: {{ settings.logo_width | default: 150 }}px;
+      {% if settings.font_heading %}--font-heading: {{ settings.font_heading.family }}, Georgia, serif;{% endif %}
+      {% if settings.font_body %}--font-body: {{ settings.font_body.family }}, sans-serif;{% endif %}
+    }
+  </style>
+  {{ 'theme.css' | asset_url | stylesheet_tag }}
+</head>
+<body data-shadow="{{ settings.shadow_intensity }}" data-animation="{{ settings.animation_intensity }}">
+  <a class="visually-hidden" href="#MainContent">Skip to content</a>
+
+  {% section 'announcement-bar' %}
+  {% section 'header' %}
+
+  <main id="MainContent">
+    {{ content_for_layout }}
+  </main>
+
+  {% section 'newsletter' %}
+  {% section 'footer' %}
+
+  {% render 'cart-drawer' %}
+  {% render 'whatsapp-float' %}
+
+  <script>
+    window.themeMoneyFormat = {{ shop.money_format | json }};
+  </script>
+  <script src="{{ 'theme.js' | asset_url }}" defer></script>
+</body>
+</html>

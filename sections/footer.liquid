@@ -1,0 +1,78 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        {%- if section.settings.logo -%}
+          <img class="footer-brand__logo" src="{{ section.settings.logo | image_url: width: 200 }}" alt="{{ shop.name }}" width="60" height="{{ 60 | divided_by: section.settings.logo.aspect_ratio }}">
+        {%- elsif settings.logo -%}
+          <img class="footer-brand__logo" src="{{ settings.logo | image_url: width: 200 }}" alt="{{ shop.name }}" width="60" height="{{ 60 | divided_by: settings.logo.aspect_ratio }}">
+        {%- else -%}
+          <img class="footer-brand__logo" src="{{ 'logo-nirvritti.webp' | asset_url }}" alt="{{ shop.name }}" width="60" height="60">
+        {%- endif -%}
+        <p class="footer-brand__tagline">Nature's Healing Touch</p>
+        <p style="font-size:13px;max-width:280px;">{{ section.settings.about_text }}</p>
+        <div class="footer-social">
+          {%- if settings.social_instagram != blank -%}<a href="{{ settings.social_instagram }}" class="btn-icon" style="border-color:rgba(255,255,255,0.25);" aria-label="Instagram">{% render 'icon', name: 'instagram' %}</a>{%- endif -%}
+          {%- if settings.social_facebook != blank -%}<a href="{{ settings.social_facebook }}" class="btn-icon" style="border-color:rgba(255,255,255,0.25);" aria-label="Facebook">{% render 'icon', name: 'facebook' %}</a>{%- endif -%}
+        </div>
+      </div>
+
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'link_list' -%}
+          <div {{ block.shopify_attributes }}>
+            <h3 class="footer-heading">{{ block.settings.heading }}</h3>
+            <ul class="footer-links">
+              {%- for link in block.settings.menu.links -%}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</span>
+      <div class="footer-payment">
+        {%- if settings.payments_live -%}
+          <span>UPI</span><span>Visa</span><span>Mastercard</span><span>RuPay</span><span>COD</span>
+        {%- else -%}
+          {%- if settings.enable_whatsapp_order and settings.whatsapp_number != blank -%}
+            <span>Orders via WhatsApp</span>
+          {%- endif -%}
+          <span>Cash on Delivery</span>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Footer logo" },
+    { "type": "textarea", "id": "about_text", "label": "About text", "default": "Thoughtfully crafted chocolates made with natural ingredients, for energy, wellness, little ones and life's special moments." }
+  ],
+  "blocks": [
+    {
+      "type": "link_list",
+      "name": "Link list",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Shop" },
+        { "type": "link_list", "id": "menu", "label": "Menu" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer",
+      "blocks": [
+        { "type": "link_list", "settings": { "heading": "Shop" } },
+        { "type": "link_list", "settings": { "heading": "Help" } },
+        { "type": "link_list", "settings": { "heading": "About" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

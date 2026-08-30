@@ -1,0 +1,15 @@
+<div class="container section-padding">
+  <article style="max-width:760px;margin:0 auto;">
+    <div class="section-header reveal">
+      <span class="eyebrow">{{ article.published_at | date: '%B %d, %Y' }}</span>
+      <h1 class="section-heading">{{ article.title }}</h1>
+    </div>
+    {%- if article.image -%}
+      <div style="border-radius:var(--radius-lg);overflow:hidden;margin-bottom:32px;">
+        <img src="{{ article.image | image_url: width: 1200 }}" alt="{{ article.title | escape }}" width="1200" height="675">
+      </div>
+    {%- endif -%}
+    <div class="rte">{{ article.content }}</div>
+  </article>
+</div>
+{% schema %}{ "name": "Article", "settings": [] }{% endschema %}

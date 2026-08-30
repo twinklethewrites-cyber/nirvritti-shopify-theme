@@ -1,0 +1,55 @@
+<div class="section-padding">
+  <div class="container">
+    <div class="section-header reveal">
+      {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+      <h2 class="section-heading">{{ section.settings.heading }}</h2>
+      {%- if section.settings.subheading != blank -%}<p class="section-subheading">{{ section.settings.subheading }}</p>{%- endif -%}
+    </div>
+    <div class="value-grid reveal-stagger">
+      {%- for block in section.blocks -%}
+        <a href="{{ block.settings.link | default: '#' }}" class="value-card" {{ block.shopify_attributes }}>
+          <span class="value-card__icon">{% render 'icon', name: block.settings.icon %}</span>
+          <h3 class="value-card__title">{{ block.settings.title }}</h3>
+          <p class="value-card__text">{{ block.settings.text }}</p>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Why Nirvritti",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Why Nirvritti" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What Makes Us Different" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading" }
+  ],
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Value",
+      "settings": [
+        { "type": "select", "id": "icon", "label": "Icon", "options": [
+          { "value": "leaf", "label": "Leaf" }, { "value": "heart", "label": "Heart" }, { "value": "shield", "label": "Shield" },
+          { "value": "sparkle", "label": "Sparkle" }, { "value": "gift", "label": "Gift" }, { "value": "child", "label": "Child" }
+        ], "default": "leaf" },
+        { "type": "text", "id": "title", "label": "Title", "default": "15 Natural Ingredients" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Every FIT-ROOT chocolate blends cocoa with nuts, seeds and natural goodness." },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Nirvritti",
+      "blocks": [
+        { "type": "value", "settings": { "icon": "leaf", "title": "15 Natural Ingredients", "text": "Cocoa blended with dates, almonds, seeds and more — nothing artificial." } },
+        { "type": "value", "settings": { "icon": "heart", "title": "Handmade With Care", "text": "Freshly made in small batches and quality checked before it reaches you." } },
+        { "type": "value", "settings": { "icon": "shield", "title": "Thoughtfully Crafted", "text": "No preservatives, no artificial flavour, no palm oil." } },
+        { "type": "value", "settings": { "icon": "gift", "title": "Something For Everyone", "text": "Energy, gifting, kids and everyday care — one brand, every moment." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

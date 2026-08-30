@@ -1,0 +1,62 @@
+<div class="section-padding">
+  <div class="container">
+    <div class="section-header reveal">
+      {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+      <h2 class="section-heading">{{ section.settings.heading }}</h2>
+    </div>
+    <div class="testimonial-track reveal-stagger">
+      {%- for block in section.blocks -%}
+        <div class="testimonial-card" {{ block.shopify_attributes }}>
+          <div class="testimonial-card__stars" aria-hidden="true">
+            {%- for i in (1..5) -%}{% if i <= block.settings.rating %}★{% else %}☆{% endif %}{%- endfor -%}
+          </div>
+          <p class="testimonial-card__quote">&ldquo;{{ block.settings.quote }}&rdquo;</p>
+          <div class="testimonial-card__person">
+            {%- if block.settings.avatar -%}
+              <img class="testimonial-card__avatar" src="{{ block.settings.avatar | image_url: width: 80 }}" alt="" loading="lazy" width="40" height="40">
+            {%- else -%}
+              <span class="testimonial-card__avatar"></span>
+            {%- endif -%}
+            <span>
+              <span class="testimonial-card__name">{{ block.settings.name }}</span><br>
+              <span class="testimonial-card__loc">{{ block.settings.location }}</span>
+            </span>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Loved By Customers" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What People Are Saying" }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        { "type": "image_picker", "id": "avatar", "label": "Photo (optional)" },
+        { "type": "range", "id": "rating", "min": 1, "max": 5, "step": 1, "label": "Rating", "default": 5 },
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "Replace this with a genuine customer review before going live." },
+        { "type": "text", "id": "name", "label": "Name", "default": "Demo Customer" },
+        { "type": "text", "id": "location", "label": "Location", "default": "Demo content — replace with a verified review" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        { "type": "testimonial", "settings": { "quote": "Really something innovative. Nice taste — a good alternative for chocolates.", "name": "Verified Google Review", "location": "Nirvritti Chocolates, Google Business Profile", "rating": 5 } },
+        { "type": "testimonial", "settings": { "quote": "Replace this placeholder with a genuine customer testimonial before launch.", "name": "Demo Customer", "location": "Demo content", "rating": 5 } },
+        { "type": "testimonial", "settings": { "quote": "Replace this placeholder with a genuine customer testimonial before launch.", "name": "Demo Customer", "location": "Demo content", "rating": 5 } }
+      ]
+    }
+  ]
+}
+{% endschema %}

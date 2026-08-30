@@ -1,0 +1,20 @@
+<div class="container section-padding">
+  <div class="section-header reveal">
+    <h1 class="section-heading">All Collections</h1>
+  </div>
+  <div class="category-grid reveal-stagger">
+    {%- for collection in collections -%}
+      <a href="{{ collection.url }}" class="category-card">
+        <span class="category-card__img">
+          {%- if collection.image -%}<img src="{{ collection.image | image_url: width: 700 }}" alt="{{ collection.title | escape }}" loading="lazy" width="700" height="933">{%- endif -%}
+        </span>
+        <span class="category-card__scrim"></span>
+        <span class="category-card__body">
+          <span class="category-card__title">{{ collection.title }}</span>
+          <span class="category-card__link">Shop now {% render 'icon', name: 'chevron-right' %}</span>
+        </span>
+      </a>
+    {%- endfor -%}
+  </div>
+</div>
+{% schema %}{ "name": "All collections", "settings": [] }{% endschema %}

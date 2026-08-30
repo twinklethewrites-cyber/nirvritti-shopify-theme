@@ -1,0 +1,67 @@
+{%- comment -%} Global AJAX cart drawer, rendered once in theme.liquid {%- endcomment -%}
+{%- if settings.cart_type == 'drawer' -%}
+<div class="drawer-overlay" id="cart-drawer-overlay"></div>
+<aside class="drawer cart-drawer" id="cart-drawer" data-overlay="cart-drawer-overlay" aria-label="Shopping cart">
+  <div class="drawer__header">
+    <h2 class="mt-0" style="font-size:20px;">Your Cart</h2>
+    <button class="btn-icon" data-drawer-close aria-label="Close cart">{% render 'icon', name: 'close' %}</button>
+  </div>
+
+  {%- if settings.cart_free_shipping -%}
+    {%- assign free_shipping_threshold_cents = settings.cart_free_shipping_threshold | times: 100 -%}
+    {%- assign free_shipping_remaining = free_shipping_threshold_cents | minus: cart.total_price -%}
+    <div class="free-shipping-bar">
+      <p data-free-shipping-msg style="margin:0;font-size:13px;font-weight:600;">
+        {%- if free_shipping_remaining > 0 -%}
+          {{ free_shipping_remaining | money }} away from free shipping
+        {%- else -%}
+          You've unlocked free shipping!
+        {%- endif -%}
+      </p>
+      <div class="free-shipping-bar__track">
+        <div class="free-shipping-bar__fill" data-free-shipping-fill data-threshold="{{ settings.cart_free_shipping_threshold }}" style="width: {% if cart.total_price > 0 %}{{ cart.total_price | divided_by: settings.cart_free_shipping_threshold | at_most: 100 }}{% else %}0{% endif %}%;"></div>
+      </div>
+    </div>
+  {%- endif -%}
+
+  <div class="drawer__body" data-cart-drawer-body>
+    {%- if cart.item_count == 0 -%}
+      <div class="cart-empty">
+        <p>Your cart is empty.</p>
+        <a href="{{ routes.all_products_collection_url }}" class="btn btn-primary" data-drawer-close>Start shopping</a>
+      </div>
+    {%- else -%}
+      {%- for item in cart.items -%}
+        <div class="cart-line" data-line-key="{{ item.key }}">
+          <img class="cart-line__img" src="{{ item.image | image_url: width: 160 }}" alt="{{ item.title | escape }}" loading="lazy" width="84" height="84">
+          <div>
+            <div class="cart-line__title">{{ item.product.title }}</div>
+            {%- unless item.variant.title == 'Default Title' -%}
+              <div class="cart-line__variant">{{ item.variant.title }}</div>
+            {%- endunless -%}
+            <div class="qty-stepper" data-qty-stepper>
+              <button type="button" data-qty-decrease aria-label="Decrease quantity">−</button>
+              <input type="text" value="{{ item.quantity }}" readonly aria-label="Quantity">
+              <button type="button" data-qty-increase aria-label="Increase quantity">+</button>
+            </div>
+            <a href="#" class="cart-line__remove" data-cart-remove>Remove</a>
+          </div>
+          <div class="price">{{ item.final_line_price | money }}</div>
+        </div>
+      {%- endfor -%}
+    {%- endif -%}
+  </div>
+
+  {%- if cart.item_count > 0 -%}
+    <div class="drawer__footer">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <span data-cart-subtotal>{{ cart.total_price | money }}</span>
+      </div>
+      <p style="font-size:12px;color:var(--color-muted);margin-bottom:12px;">Shipping, taxes, and discounts calculated at checkout.</p>
+      <a href="/checkout" class="btn btn-primary btn-block">Checkout</a>
+      <a href="{{ routes.cart_url }}" class="btn btn-secondary btn-block" style="margin-top:8px;">View cart</a>
+    </div>
+  {%- endif -%}
+</aside>
+{%- endif -%}

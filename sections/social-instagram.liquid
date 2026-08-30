@@ -1,0 +1,52 @@
+<div class="section-padding">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 class="section-heading">{{ section.settings.heading }}</h2>
+      {%- if section.settings.handle != blank -%}
+        <p class="section-subheading"><a href="{{ section.settings.handle_link }}">{{ section.settings.handle }}</a></p>
+      {%- endif -%}
+    </div>
+    <div class="social-grid reveal-stagger">
+      {%- for block in section.blocks -%}
+        <a href="{{ block.settings.link | default: section.settings.handle_link }}" class="social-tile" {{ block.shopify_attributes }}>
+          {%- if block.settings.image -%}
+            <img src="{{ block.settings.image | image_url: width: 400 }}" alt="" loading="lazy" width="400" height="400">
+          {%- endif -%}
+          <span class="social-tile__icon">{% render 'icon', name: 'instagram' %}</span>
+        </a>
+      {%- endfor -%}
+    </div>
+    {%- if section.settings.button_label != blank -%}
+      <div class="text-center" style="margin-top:32px;">
+        <a href="{{ section.settings.handle_link }}" class="btn btn-secondary">{{ section.settings.button_label }}</a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Social / Instagram",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Follow the Nirvritti Journey" },
+    { "type": "text", "id": "handle", "label": "Handle display text", "default": "@nirvritti.chocolates.agpl" },
+    { "type": "url", "id": "handle_link", "label": "Instagram link" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Follow on Instagram" }
+  ],
+  "blocks": [
+    { "type": "image", "name": "Image", "settings": [
+      { "type": "image_picker", "id": "image", "label": "Image" },
+      { "type": "url", "id": "link", "label": "Link (optional)" }
+    ] }
+  ],
+  "presets": [
+    {
+      "name": "Social / Instagram",
+      "blocks": [
+        { "type": "image" }, { "type": "image" }, { "type": "image" },
+        { "type": "image" }, { "type": "image" }, { "type": "image" }
+      ]
+    }
+  ]
+}
+{% endschema %}

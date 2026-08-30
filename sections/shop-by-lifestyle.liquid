@@ -1,0 +1,53 @@
+<div class="section-padding">
+  <div class="container">
+    <div class="section-header reveal">
+      {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+      <h2 class="section-heading">{{ section.settings.heading }}</h2>
+    </div>
+    <div class="lifestyle-grid reveal-stagger">
+      {%- for block in section.blocks -%}
+        <a href="{{ block.settings.link }}" class="lifestyle-card" {{ block.shopify_attributes }}>
+          <span class="lifestyle-card__icon">{% render 'icon', name: block.settings.icon %}</span>
+          <h3 class="lifestyle-card__title">{{ block.settings.title }}</h3>
+          <p class="lifestyle-card__text">{{ block.settings.text }}</p>
+          <span class="lifestyle-card__link">Shop now &rarr;</span>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Shop by lifestyle",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Self-Select" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What Are You Looking For Today?" }
+  ],
+  "blocks": [
+    {
+      "type": "lifestyle",
+      "name": "Lifestyle card",
+      "settings": [
+        { "type": "select", "id": "icon", "label": "Icon", "options": [
+          { "value": "bolt", "label": "Bolt" }, { "value": "heart", "label": "Heart" }, { "value": "child", "label": "Child" }, { "value": "leaf", "label": "Leaf" }
+        ], "default": "bolt" },
+        { "type": "text", "id": "title", "label": "Title", "default": "I Need Energy" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "For active days and busy schedules." },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop by lifestyle",
+      "blocks": [
+        { "type": "lifestyle", "settings": { "icon": "bolt", "title": "I Need Energy", "text": "For active days and busy schedules." } },
+        { "type": "lifestyle", "settings": { "icon": "heart", "title": "Buying for Someone Special", "text": "A little sweetness for the moments worth celebrating." } },
+        { "type": "lifestyle", "settings": { "icon": "child", "title": "Something for My Little One", "text": "Fun shapes made with natural ingredients." } },
+        { "type": "lifestyle", "settings": { "icon": "leaf", "title": "Something for Everyday Care", "text": "Natural goodness for everyday moments." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,33 @@
+<div class="container section-padding">
+  <div class="collection-toolbar">
+    <h1 class="section-heading mt-0">My Account</h1>
+    <a href="{{ routes.account_logout_url }}" class="btn btn-secondary btn-sm">Log out</a>
+  </div>
+
+  <h2 style="font-size:20px;">Order History</h2>
+  {%- if customer.orders.size > 0 -%}
+    <div style="overflow-x:auto;">
+    <table style="width:100%;border-collapse:collapse;">
+      <thead><tr style="text-align:left;border-bottom:1px solid rgba(23,59,80,.12);">
+        <th style="padding:10px 0;">Order</th><th>Date</th><th>Payment</th><th>Fulfillment</th><th>Total</th>
+      </tr></thead>
+      <tbody>
+        {%- for order in customer.orders -%}
+          <tr style="border-bottom:1px solid rgba(23,59,80,.08);">
+            <td style="padding:12px 0;"><a href="{{ order.customer_url }}">{{ order.name }}</a></td>
+            <td>{{ order.created_at | date: '%b %d, %Y' }}</td>
+            <td>{{ order.financial_status_label }}</td>
+            <td>{{ order.fulfillment_status_label }}</td>
+            <td>{{ order.total_price | money }}</td>
+          </tr>
+        {%- endfor -%}
+      </tbody>
+    </table>
+    </div>
+  {%- else -%}
+    <p>You haven't placed any orders yet.</p>
+  {%- endif -%}
+
+  <h2 style="font-size:20px;margin-top:40px;">Address Book</h2>
+  <p><a href="{{ routes.account_addresses_url }}" class="btn btn-secondary btn-sm">Manage Addresses</a></p>
+</div>

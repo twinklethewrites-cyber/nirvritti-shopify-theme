@@ -1,0 +1,50 @@
+{%- comment -%}
+  Reusable product card.
+  Usage: {% render 'product-card', product: product, show_quick_add: true %}
+{%- endcomment -%}
+{%- liquid
+  assign show_quick_add = show_quick_add | default: true
+  assign featured_image = product.featured_image | default: product.images.first
+  assign secondary_image = product.images[1]
+  assign is_sale = false
+  if product.compare_at_price > product.price
+    assign is_sale = true
+  endif
+-%}
+<div class="product-card">
+  <a href="{{ product.url }}" class="product-card__media">
+    {%- if featured_image -%}
+      <img class="img-primary" src="{{ featured_image | image_url: width: 600 }}" srcset="{{ featured_image | image_url: width: 400 }} 400w, {{ featured_image | image_url: width: 600 }} 600w, {{ featured_image | image_url: width: 800 }} 800w" sizes="(max-width: 749px) 50vw, 25vw" alt="{{ featured_image.alt | default: product.title | escape }}" loading="lazy" width="600" height="600">
+    {%- else -%}
+      <div class="skeleton" style="width:100%;height:100%;"></div>
+    {%- endif -%}
+    {%- if secondary_image -%}
+      <img class="img-secondary" src="{{ secondary_image | image_url: width: 600 }}" alt="" loading="lazy" width="600" height="600">
+    {%- endif -%}
+    <span class="product-card__badges">
+      {%- if is_sale -%}<span class="badge badge--sale">Sale</span>{%- endif -%}
+      {%- unless product.available -%}<span class="badge badge--sold-out">Sold out</span>{%- endunless -%}
+      {%- if badge -%}<span class="badge">{{ badge }}</span>{%- endif -%}
+    </span>
+    {%- if show_quick_add and product.available -%}
+      <span class="product-card__quick-add">
+        {%- if product.variants.size == 1 -%}
+          <form action="{{ routes.cart_add_url }}" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+            <button type="submit" class="btn btn-light btn-block btn-sm" onclick="event.preventDefault(); this.closest('form').requestSubmit ? this.closest('form').requestSubmit() : this.closest('form').submit();">Quick Add</button>
+          </form>
+        {%- else -%}
+          <a href="{{ product.url }}" class="btn btn-light btn-block btn-sm">Select options</a>
+        {%- endif -%}
+      </span>
+    {%- endif -%}
+  </a>
+  <div class="product-card__info">
+    {%- if product.vendor and show_vendor -%}<div class="product-card__vendor">{{ product.vendor }}</div>{%- endif -%}
+    <a href="{{ product.url }}"><h3 class="product-card__title">{{ product.title }}</h3></a>
+    {%- if product.description != blank and show_description -%}
+      <p class="product-card__desc">{{ product.description | strip_html | truncate: 60 }}</p>
+    {%- endif -%}
+    {% render 'price', product: product %}
+  </div>
+</div>

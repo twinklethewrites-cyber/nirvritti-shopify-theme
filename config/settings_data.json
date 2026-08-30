@@ -1,0 +1,37 @@
+{
+  "current": {
+    "logo_width": 150,
+    "color_primary": "#173B50",
+    "color_secondary": "#62A96B",
+    "color_sage": "#DCEFE7",
+    "color_accent": "#4BA9C5",
+    "color_background": "#F7FAF8",
+    "color_surface": "#FFFFFF",
+    "color_text": "#172126",
+    "color_muted": "#667276",
+    "color_button_bg": "#62A96B",
+    "color_button_text": "#FFFFFF",
+    "font_heading": "cormorant_garamond_n6",
+    "font_body": "dm_sans_n4",
+    "page_width": 1360,
+    "spacing_sections": 0,
+    "border_radius": 10,
+    "shadow_intensity": "soft",
+    "animation_intensity": "subtle",
+    "cart_type": "drawer",
+    "cart_free_shipping": true,
+    "cart_free_shipping_threshold": 599,
+    "enable_whatsapp_order": true,
+    "whatsapp_number": "919876543210",
+    "whatsapp_message": "Hi Nirvritti! I'd like to order [product] ([url]).",
+    "whatsapp_floating_button": true,
+    "payments_live": false,
+    "social_instagram": "https://www.instagram.com/nirvritti.chocolates.agpl",
+    "social_facebook": "",
+    "social_youtube": "",
+    "social_whatsapp": ""
+  },
+  "presets": {
+    "Nirvritti Default": {}
+  }
+}

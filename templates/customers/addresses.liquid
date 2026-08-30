@@ -1,0 +1,29 @@
+<div class="container section-padding">
+  <a href="{{ routes.account_url }}" style="font-size:13px;">&larr; Back to account</a>
+  <h1 class="section-heading">Address Book</h1>
+
+  {%- for address in customer.addresses -%}
+    <div class="testimonial-card" style="margin-bottom:16px;">
+      <p style="margin:0;">{{ address | format_address }}</p>
+      <div style="display:flex;gap:10px;margin-top:10px;">
+        <a href="{{ routes.account_addresses_url }}/{{ address.id }}/edit" class="btn btn-secondary btn-sm">Edit</a>
+        {%- form 'customer_address', address -%}
+          <button type="submit" name="_method" value="delete" class="btn btn-secondary btn-sm" onclick="return confirm('Delete this address?');">Delete</button>
+        {%- endform -%}
+      </div>
+    </div>
+  {%- endfor -%}
+
+  <h2 style="font-size:18px;">Add a new address</h2>
+  {%- form 'customer_address', customer.new_address -%}
+    <div style="display:grid;gap:12px;max-width:440px;">
+      <input type="text" name="address[first_name]" placeholder="First name" style="padding:12px;border-radius:var(--radius);border:1px solid rgba(23,59,80,.15);">
+      <input type="text" name="address[last_name]" placeholder="Last name" style="padding:12px;border-radius:var(--radius);border:1px solid rgba(23,59,80,.15);">
+      <input type="text" name="address[address1]" placeholder="Address" style="padding:12px;border-radius:var(--radius);border:1px solid rgba(23,59,80,.15);">
+      <input type="text" name="address[city]" placeholder="City" style="padding:12px;border-radius:var(--radius);border:1px solid rgba(23,59,80,.15);">
+      <input type="text" name="address[zip]" placeholder="PIN code" style="padding:12px;border-radius:var(--radius);border:1px solid rgba(23,59,80,.15);">
+      <input type="text" name="address[phone]" placeholder="Phone" style="padding:12px;border-radius:var(--radius);border:1px solid rgba(23,59,80,.15);">
+    </div>
+    <button type="submit" class="btn btn-primary" style="margin-top:16px;">Save Address</button>
+  {%- endform -%}
+</div>

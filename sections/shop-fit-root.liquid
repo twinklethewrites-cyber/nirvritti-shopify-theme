@@ -1,0 +1,60 @@
+<div class="section-padding">
+  <div class="container">
+    <div class="section-header reveal">
+      {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+      <h2 class="section-heading">{{ section.settings.heading }}</h2>
+      {%- if section.settings.subheading != blank -%}<p class="section-subheading">{{ section.settings.subheading }}</p>{%- endif -%}
+    </div>
+    <div class="category-grid reveal-stagger">
+      {%- for block in section.blocks -%}
+        <a href="{{ block.settings.link }}" class="category-card" {{ block.shopify_attributes }}>
+          <span class="category-card__img">
+            {%- if block.settings.image -%}
+              <img src="{{ block.settings.image | image_url: width: 700 }}" alt="{{ block.settings.title | escape }}" loading="lazy" width="700" height="933">
+            {%- endif -%}
+          </span>
+          <span class="category-card__scrim"></span>
+          <span class="category-card__body">
+            <span class="category-card__title">{{ block.settings.title }}</span>
+            <span class="category-card__text">{{ block.settings.text }}</span>
+            <span class="category-card__link">Shop now {% render 'icon', name: 'chevron-right' %}</span>
+          </span>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Shop FIT-ROOT",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The FIT-ROOT Range" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Find Your FIT-ROOT" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "One chocolate concept, four ways to enjoy it." }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category card",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Energy" },
+        { "type": "text", "id": "text", "label": "Text", "default": "Beat Box & On-The-Go" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop FIT-ROOT",
+      "blocks": [
+        { "type": "category", "settings": { "title": "Energy", "text": "Beat Box & On-The-Go" } },
+        { "type": "category", "settings": { "title": "Love", "text": "Cupid" } },
+        { "type": "category", "settings": { "title": "Kids", "text": "Tiny Cubs, Mini Hearts & Jurassic Bites" } },
+        { "type": "category", "settings": { "title": "Care", "text": "Golden Care" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

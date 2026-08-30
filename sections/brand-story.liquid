@@ -1,0 +1,28 @@
+<div class="section-padding">
+  <div class="container">
+    <div class="brand-story reveal">
+      {%- if section.settings.logo -%}
+        <img class="brand-story__logo" src="{{ section.settings.logo | image_url: width: 200 }}" alt="{{ shop.name }}" width="200" height="{{ 200 | divided_by: section.settings.logo.aspect_ratio }}">
+      {%- endif -%}
+      <h2 class="brand-story__heading">{{ section.settings.heading }}</h2>
+      <p class="brand-story__text">{{ section.settings.text }}</p>
+      {%- if section.settings.button_label != blank -%}
+        <a href="{{ section.settings.button_link }}" class="btn btn-secondary">{{ section.settings.button_label }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Brand story",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo / mark" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Nature's Healing Touch" },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "Nirvritti brings together thoughtful ingredients, natural inspiration and modern living to create products made with care." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Discover Nirvritti" },
+    { "type": "url", "id": "button_link", "label": "Button link" }
+  ],
+  "presets": [{ "name": "Brand story" }]
+}
+{% endschema %}

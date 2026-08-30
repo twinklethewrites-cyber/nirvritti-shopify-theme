@@ -1,0 +1,36 @@
+<div class="section-padding">
+  <div class="container">
+    <div class="cupid-section reveal">
+      <div class="editorial" style="padding:0;">
+        <div class="editorial__media" style="border-radius:0;">
+          {%- if section.settings.image -%}
+            <img src="{{ section.settings.image | image_url: width: 900 }}" alt="{{ section.settings.heading | escape }}" loading="lazy" width="900" height="1125">
+          {%- endif -%}
+        </div>
+        <div style="padding: var(--space-6);">
+          <span class="eyebrow editorial__eyebrow">{{ section.settings.eyebrow }}</span>
+          <h2 class="editorial__heading">{{ section.settings.heading }}</h2>
+          <p class="editorial__text">{{ section.settings.text }}</p>
+          {%- if section.settings.button_label != blank -%}
+            <a href="{{ section.settings.button_link }}" class="btn btn-primary">{{ section.settings.button_label }}</a>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Cupid / Gifting",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Cupid Collection" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Made for Sharing." },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "A little sweetness for the moments worth celebrating." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop Cupid" },
+    { "type": "url", "id": "button_link", "label": "Button link" }
+  ],
+  "presets": [{ "name": "Cupid / Gifting" }]
+}
+{% endschema %}

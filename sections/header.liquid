@@ -1,0 +1,104 @@
+<header class="site-header" data-site-header>
+  <div class="container site-header__row">
+    {%- liquid
+      assign logo_w = settings.logo_width | default: 150
+    -%}
+    <a href="{{ routes.root_url }}" class="site-header__logo" aria-label="{{ shop.name }} home">
+      {%- if section.settings.logo -%}
+        <img src="{{ section.settings.logo | image_url: width: 400 }}" alt="{{ shop.name }}" width="{{ logo_w }}" height="{{ logo_w | divided_by: section.settings.logo.aspect_ratio | default: logo_w }}">
+      {%- elsif settings.logo -%}
+        <img src="{{ settings.logo | image_url: width: 400 }}" alt="{{ shop.name }}" width="{{ logo_w }}" height="{{ logo_w | divided_by: settings.logo.aspect_ratio | default: logo_w }}">
+      {%- else -%}
+        {%- comment -%} Falls back to the bundled Nirvritti logo until a logo is uploaded in Theme settings → Logo. {%- endcomment -%}
+        <img src="{{ 'logo-nirvritti.webp' | asset_url }}" alt="{{ shop.name }}" width="{{ logo_w }}" height="{{ logo_w }}">
+      {%- endif -%}
+    </a>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <ul class="site-nav__list">
+        {%- for link in section.settings.main_menu.links -%}
+          <li class="site-nav__item">
+            <a href="{{ link.url }}" class="site-nav__link">{{ link.title }}</a>
+            {%- if link.links != blank -%}
+              <div class="site-nav__dropdown">
+                {%- for child in link.links -%}
+                  <a href="{{ child.url }}">{{ child.title }}</a>
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <div class="header-actions__search-desktop" data-search-wrapper style="position:relative;">
+        <button class="btn-icon" data-search-toggle aria-label="Search" onclick="this.nextElementSibling.classList.toggle('is-open'); this.nextElementSibling.querySelector('input').focus();">
+          {% render 'icon', name: 'search' %}
+        </button>
+        <div class="search-popover" data-search-popover>
+          <form action="{{ routes.search_url }}" method="get" role="search" class="search-field">
+            {% render 'icon', name: 'search' %}
+            <input type="search" name="q" placeholder="Search products…" data-predictive-search-input autocomplete="off" value="{{ search.terms }}">
+          </form>
+          <div class="predictive-results" data-predictive-results></div>
+        </div>
+      </div>
+
+      <a href="{{ routes.account_url }}" class="btn-icon" aria-label="Account">{% render 'icon', name: 'user' %}</a>
+
+      <a href="{{ routes.cart_url }}" class="btn-icon header-actions__link" aria-label="Cart"
+        {%- if settings.cart_type == 'drawer' -%} data-drawer-open="cart-drawer" {%- endif -%}>
+        {% render 'icon', name: 'bag' %}
+        <span class="cart-count" data-cart-count {% if cart.item_count == 0 %}hidden{% endif %}>{{ cart.item_count }}</span>
+      </a>
+
+      <button class="btn-icon hamburger" data-drawer-open="mobile-nav" aria-label="Open menu">{% render 'icon', name: 'menu' %}</button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer-overlay" id="mobile-nav-overlay"></div>
+<aside class="drawer drawer--left" id="mobile-nav" data-overlay="mobile-nav-overlay" aria-label="Mobile menu">
+  <div class="drawer__header">
+    {%- if section.settings.logo -%}
+      <img src="{{ section.settings.logo | image_url: width: 200 }}" alt="{{ shop.name }}" width="44" height="44" style="width:44px;height:44px;object-fit:contain;">
+    {%- elsif settings.logo -%}
+      <img src="{{ settings.logo | image_url: width: 200 }}" alt="{{ shop.name }}" width="44" height="44" style="width:44px;height:44px;object-fit:contain;">
+    {%- else -%}
+      <img src="{{ 'logo-nirvritti.webp' | asset_url }}" alt="{{ shop.name }}" width="44" height="44" style="width:44px;height:44px;object-fit:contain;">
+    {%- endif -%}
+    <button class="btn-icon" data-drawer-close aria-label="Close menu">{% render 'icon', name: 'close' %}</button>
+  </div>
+  <div class="drawer__body">
+    <form action="{{ routes.search_url }}" method="get" role="search" class="search-field" style="margin-bottom:20px;">
+      {% render 'icon', name: 'search' %}
+      <input type="search" name="q" placeholder="Search products…">
+    </form>
+    <nav>
+      {%- for link in section.settings.main_menu.links -%}
+        <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title }}</a>
+        {%- if link.links != blank -%}
+          <div class="mobile-nav__sub">
+            {%- for child in link.links -%}
+              <a href="{{ child.url }}">{{ child.title }}</a>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </nav>
+  </div>
+  <div class="drawer__footer">
+    <a href="{{ routes.account_url }}" class="btn btn-secondary btn-block">My Account</a>
+  </div>
+</aside>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo (overrides theme setting logo if set)" },
+    { "type": "link_list", "id": "main_menu", "label": "Main menu", "default": "main-menu" }
+  ]
+}
+{% endschema %}

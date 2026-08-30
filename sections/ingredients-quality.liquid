@@ -1,0 +1,64 @@
+<div class="section-padding">
+  <div class="container">
+    {%- if section.settings.image -%}
+      <div class="ingredients-hero reveal">
+        <img src="{{ section.settings.image | image_url: width: 1600 }}" alt="{{ section.settings.heading | escape }}" loading="lazy" width="1600" height="686">
+      </div>
+    {%- endif -%}
+    <div class="section-header reveal">
+      {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+      <h2 class="section-heading">{{ section.settings.heading }}</h2>
+      {%- if section.settings.subheading != blank -%}<p class="section-subheading">{{ section.settings.subheading }}</p>{%- endif -%}
+    </div>
+    <div class="ingredient-strip reveal">
+      {%- for block in section.blocks -%}
+        <div class="ingredient-chip" {{ block.shopify_attributes }}>
+          <span class="ingredient-chip__icon">{% render 'icon', name: block.settings.icon %}</span>
+          {{ block.settings.text }}
+        </div>
+      {%- endfor -%}
+    </div>
+    {%- if section.settings.footnote != blank -%}
+      <p style="text-align:center;color:var(--color-muted);font-size:13px;margin-top:20px;">{{ section.settings.footnote }}</p>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Ingredients / Quality",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Editorial image" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Quality You Can Trust" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What's Inside Matters." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Every FIT-ROOT pack is built around the same honest promise." },
+    { "type": "textarea", "id": "footnote", "label": "Footnote", "default": "Specific claims vary by product — see each product page for details." }
+  ],
+  "blocks": [
+    {
+      "type": "claim",
+      "name": "Claim",
+      "settings": [
+        { "type": "select", "id": "icon", "label": "Icon", "options": [
+          { "value": "leaf", "label": "Leaf" }, { "value": "shield", "label": "Shield" }, { "value": "no-sugar", "label": "No / crossed" }, { "value": "sparkle", "label": "Sparkle" }
+        ], "default": "leaf" },
+        { "type": "text", "id": "text", "label": "Text", "default": "15 Natural Ingredients" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredients / Quality",
+      "blocks": [
+        { "type": "claim", "settings": { "icon": "leaf", "text": "15 Natural Ingredients" } },
+        { "type": "claim", "settings": { "icon": "shield", "text": "No Preservatives" } },
+        { "type": "claim", "settings": { "icon": "no-sugar", "text": "No Artificial Flavour" } },
+        { "type": "claim", "settings": { "icon": "no-sugar", "text": "No Artificial Sweeteners" } },
+        { "type": "claim", "settings": { "icon": "no-sugar", "text": "No Palm Oil" } },
+        { "type": "claim", "settings": { "icon": "no-sugar", "text": "No Trans Fat" } },
+        { "type": "claim", "settings": { "icon": "sparkle", "text": "Made With Care" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

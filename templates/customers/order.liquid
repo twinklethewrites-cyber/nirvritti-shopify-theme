@@ -1,0 +1,23 @@
+<div class="container section-padding">
+  <a href="{{ routes.account_url }}" style="font-size:13px;">&larr; Back to account</a>
+  <h1 class="section-heading">Order {{ order.name }}</h1>
+  <p style="color:var(--color-muted);">Placed on {{ order.created_at | date: '%B %d, %Y' }}</p>
+
+  {%- for line in order.line_items -%}
+    <div class="cart-line">
+      <img class="cart-line__img" src="{{ line.image | image_url: width: 160 }}" alt="{{ line.title | escape }}" width="84" height="84">
+      <div>
+        <div class="cart-line__title">{{ line.title }}</div>
+        <div class="cart-line__variant">Qty {{ line.quantity }}</div>
+      </div>
+      <div class="price">{{ line.final_line_price | money }}</div>
+    </div>
+  {%- endfor -%}
+
+  <div style="max-width:320px;margin-left:auto;margin-top:24px;">
+    <div class="cart-subtotal"><span>Total</span><span>{{ order.total_price | money }}</span></div>
+  </div>
+
+  <h2 style="font-size:18px;margin-top:32px;">Shipping Address</h2>
+  <p>{{ order.shipping_address | format_address }}</p>
+</div>

@@ -1,0 +1,88 @@
+<div class="collection-hero">
+  {%- if collection.image or section.settings.image -%}
+    <img src="{{ section.settings.image | default: collection.image | image_url: width: 1600 }}" alt="{{ collection.title | escape }}" width="1600" height="320">
+    <span class="collection-hero__scrim"></span>
+  {%- endif -%}
+  <div class="collection-hero__content">
+    <h1>{{ collection.title }}</h1>
+    {%- if collection.description != blank -%}
+      <div style="max-width:560px;color:rgba(255,255,255,0.9);">{{ collection.description }}</div>
+    {%- endif -%}
+  </div>
+</div>
+
+<div class="container section-padding" style="padding-top:0;">
+  <div class="collection-layout">
+    <aside class="facets-desktop">
+      {%- if collection.filters.size > 0 -%}
+        <form id="FacetFiltersForm">
+          {%- for filter in collection.filters -%}
+            <div class="facet-group">
+              <div class="facet-group__title">{{ filter.label }}</div>
+              {%- for value in filter.values -%}
+                <label class="facet-option">
+                  <input type="checkbox" name="{{ value.param_name }}" value="{{ value.value }}" {% if value.active %}checked{% endif %} onchange="this.form.submit()">
+                  {{ value.label }} ({{ value.count }})
+                </label>
+              {%- endfor -%}
+            </div>
+          {%- endfor -%}
+        </form>
+      {%- endif -%}
+    </aside>
+
+    <div>
+      <div class="collection-toolbar">
+        <span style="color:var(--color-muted);font-size:14px;">{{ collection.products_count }} products</span>
+        <form id="SortForm" method="get">
+          <input type="hidden" name="q" value="{{ collection.current_vendor }}">
+          <label class="visually-hidden" for="SortBy">Sort by</label>
+          <select id="SortBy" name="sort_by" onchange="this.form.submit()">
+            <option value="manual" {% if collection.sort_by == 'manual' %}selected{% endif %}>Featured</option>
+            <option value="best-selling" {% if collection.sort_by == 'best-selling' %}selected{% endif %}>Best selling</option>
+            <option value="price-ascending" {% if collection.sort_by == 'price-ascending' %}selected{% endif %}>Price: Low to High</option>
+            <option value="price-descending" {% if collection.sort_by == 'price-descending' %}selected{% endif %}>Price: High to Low</option>
+            <option value="created-descending" {% if collection.sort_by == 'created-descending' %}selected{% endif %}>Newest</option>
+          </select>
+        </form>
+      </div>
+
+      {%- paginate collection.products by section.settings.products_per_page -%}
+        {%- if collection.products.size > 0 -%}
+          <div class="product-grid" style="--cols-desktop:{{ section.settings.columns_desktop }};--cols-mobile:{{ section.settings.columns_mobile }};">
+            {%- for product in collection.products -%}
+              {% render 'product-card', product: product %}
+            {%- endfor -%}
+          </div>
+        {%- else -%}
+          <div class="empty-state">
+            <h2>No products found</h2>
+            <p>Try removing some filters.</p>
+          </div>
+        {%- endif -%}
+
+        {%- if paginate.pages > 1 -%}
+          <nav class="pagination" aria-label="Pagination">
+            {%- if paginate.previous -%}<a href="{{ paginate.previous.url }}">&larr;</a>{%- endif -%}
+            {%- for part in paginate.parts -%}
+              {%- if part.is_link -%}<a href="{{ part.url }}">{{ part.title }}</a>{%- else -%}<span class="is-current">{{ part.title }}</span>{%- endif -%}
+            {%- endfor -%}
+            {%- if paginate.next -%}<a href="{{ paginate.next.url }}">&rarr;</a>{%- endif -%}
+          </nav>
+        {%- endif -%}
+      {%- endpaginate -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection page",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Collection banner override" },
+    { "type": "range", "id": "products_per_page", "min": 8, "max": 48, "step": 4, "label": "Products per page", "default": 16 },
+    { "type": "range", "id": "columns_desktop", "min": 2, "max": 5, "step": 1, "label": "Desktop columns", "default": 4 },
+    { "type": "range", "id": "columns_mobile", "min": 1, "max": 2, "step": 1, "label": "Mobile columns", "default": 2 }
+  ]
+}
+{% endschema %}

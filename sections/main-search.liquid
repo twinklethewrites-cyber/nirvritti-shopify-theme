@@ -1,0 +1,38 @@
+<div class="container section-padding">
+  <div class="section-header reveal">
+    <h1 class="section-heading">Search</h1>
+    <form action="{{ routes.search_url }}" method="get" role="search" class="search-field" style="max-width:480px;margin:0 auto;">
+      {% render 'icon', name: 'search' %}
+      <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search products…">
+    </form>
+  </div>
+
+  {%- if search.performed -%}
+    {%- if search.results_count > 0 -%}
+      <p style="color:var(--color-muted);margin-bottom:20px;">{{ search.results_count }} results for "{{ search.terms }}"</p>
+      <div class="product-grid" style="--cols-desktop:4;--cols-mobile:2;">
+        {%- for item in search.results -%}
+          {%- if item.object_type == 'product' -%}
+            {% render 'product-card', product: item %}
+          {%- else -%}
+            <a href="{{ item.url }}" class="product-card">
+              <div class="product-card__info">
+                <h3 class="product-card__title">{{ item.title }}</h3>
+                <p class="product-card__desc">{{ item.content | strip_html | truncate: 100 }}</p>
+              </div>
+            </a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <div class="empty-state">
+        <h2>No results for "{{ search.terms }}"</h2>
+        <p>Try a different search term, or browse our <a href="{{ routes.all_products_collection_url }}">full collection</a>.</p>
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+</div>
+
+{% schema %}
+{ "name": "Search page", "settings": [] }
+{% endschema %}

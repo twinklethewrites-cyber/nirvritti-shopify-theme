@@ -1,0 +1,160 @@
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign product_full_url = shop.url | append: product.url
+  assign whatsapp_text = settings.whatsapp_message | default: 'Hi Nirvritti! I would like to order [product] ([url]).' | replace: '[product]', product.title | replace: '[url]', product_full_url
+  assign whatsapp_text_encoded = whatsapp_text | url_encode
+  assign whatsapp_href = 'https://wa.me/' | append: settings.whatsapp_number | append: '?text=' | append: whatsapp_text_encoded
+-%}
+<div class="section-padding" style="padding-top:40px;">
+  <div class="container">
+    <div class="product-main">
+      <div class="product-gallery" data-product-gallery>
+        <div class="product-gallery__main">
+          <img data-gallery-main-img src="{{ product.featured_image | image_url: width: 900 }}" alt="{{ product.featured_image.alt | default: product.title | escape }}" width="900" height="900" fetchpriority="high">
+        </div>
+        {%- if product.images.size > 1 -%}
+          <div class="product-gallery__thumbs">
+            {%- for image in product.images -%}
+              <button type="button" class="product-gallery__thumb{% if forloop.first %} is-active{% endif %}" data-gallery-thumb data-full-src="{{ image | image_url: width: 900 }}" aria-label="Show image {{ forloop.index }}">
+                <img src="{{ image | image_url: width: 160 }}" alt="" loading="lazy" width="72" height="72">
+              </button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="product-info">
+        {%- if product.vendor != blank -%}<div class="product-info__vendor">{{ product.vendor }}</div>{%- endif -%}
+        <h1 class="product-info__title">{{ product.title }}</h1>
+
+        <div class="product-info__price" data-variant-price>{% render 'price', product: product, variant: current_variant %}</div>
+
+        {%- if product.metafields.custom.claims != blank -%}
+          <div class="product-claims">
+            {%- for claim in product.metafields.custom.claims.value -%}
+              <span class="badge" style="background:var(--color-sage);color:var(--color-primary);">{{ claim }}</span>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        <div class="product-info__desc">{{ product.description }}</div>
+
+        {%- form 'product', product, id: 'ProductForm', data-main-atc: '' -%}
+          <input type="hidden" name="id" value="{{ current_variant.id }}">
+
+          {%- if product.variants.size > 1 -%}
+            {%- for option in product.options_with_values -%}
+              <div class="variant-picker" data-variant-picker>
+                <span class="variant-picker__label">{{ option.name }}</span>
+                <div class="variant-swatches">
+                  {%- for value in option.values -%}
+                    {%- assign variant_for_value = product.variants | where: 'title', value | first -%}
+                    <span
+                      class="variant-swatch{% if value == current_variant.title %} is-selected{% endif %}"
+                      data-variant-swatch
+                      data-variant-id="{{ variant_for_value.id | default: product.variants.first.id }}"
+                      data-variant-available="{{ variant_for_value.available | default: true }}"
+                      data-variant-price="{{ variant_for_value.price | money }}"
+                      role="button" tabindex="0">{{ value }}</span>
+                  {%- endfor -%}
+                </div>
+              </div>
+            {%- endfor -%}
+          {%- endif -%}
+
+          {%- if settings.enable_whatsapp_order and settings.whatsapp_number != blank -%}
+            <a href="{{ whatsapp_href }}" class="btn btn-primary btn-block" style="background:#25D366;margin-bottom:12px;gap:10px;" target="_blank" rel="noopener">
+              {% render 'icon', name: 'whatsapp' %} Order on WhatsApp
+            </a>
+            {%- unless settings.payments_live -%}
+              <p style="font-size:12px;color:var(--color-muted);margin:-6px 0 16px;">We're currently taking orders via WhatsApp / Cash on Delivery.</p>
+            {%- endunless -%}
+          {%- endif -%}
+
+          <div class="product-form__row">
+            <div class="qty-stepper">
+              <button type="button" data-qty-decrease aria-label="Decrease quantity">−</button>
+              <input type="number" name="quantity" value="1" min="1" aria-label="Quantity">
+              <button type="button" data-qty-increase aria-label="Increase quantity">+</button>
+            </div>
+            <button type="submit" class="btn btn-secondary btn-block" data-add-text="Add to Cart" {% unless current_variant.available %}disabled{% endunless %}>
+              {%- if current_variant.available -%}Add to Cart{%- else -%}Sold out{%- endif -%}
+            </button>
+          </div>
+          {%- if settings.payments_live -%}
+            <a href="/checkout" class="btn btn-secondary btn-block" style="margin-bottom:20px;">Buy It Now</a>
+          {%- endif -%}
+        {%- endform -%}
+
+        <div class="product-info__shipping">
+          <span>{% render 'icon', name: 'truck' %} Ships in 2–4 days</span>
+          <span>{% render 'icon', name: 'shield' %} Quality checked</span>
+        </div>
+
+        <div class="accordion">
+          <div class="accordion__item">
+            <button class="accordion__trigger" type="button">Product Details {% render 'icon', name: 'plus' %}</button>
+            <div class="accordion__panel"><div class="accordion__panel-inner">{{ product.description }}</div></div>
+          </div>
+          {%- if product.metafields.custom.ingredients != blank -%}
+          <div class="accordion__item">
+            <button class="accordion__trigger" type="button">Ingredients {% render 'icon', name: 'plus' %}</button>
+            <div class="accordion__panel"><div class="accordion__panel-inner">{{ product.metafields.custom.ingredients.value }}</div></div>
+          </div>
+          {%- endif -%}
+          {%- if product.metafields.custom.how_to_use != blank -%}
+          <div class="accordion__item">
+            <button class="accordion__trigger" type="button">How to Use {% render 'icon', name: 'plus' %}</button>
+            <div class="accordion__panel"><div class="accordion__panel-inner">{{ product.metafields.custom.how_to_use.value }}</div></div>
+          </div>
+          {%- endif -%}
+          <div class="accordion__item">
+            <button class="accordion__trigger" type="button">Shipping {% render 'icon', name: 'plus' %}</button>
+            <div class="accordion__panel"><div class="accordion__panel-inner">Orders are freshly made and dispatched within 2–4 business days. See our <a href="/policies/shipping-policy">shipping policy</a> for details.</div></div>
+          </div>
+          <div class="accordion__item">
+            <button class="accordion__trigger" type="button">Returns {% render 'icon', name: 'plus' %}</button>
+            <div class="accordion__panel"><div class="accordion__panel-inner">As a fresh, handmade food product, we can only accept returns for damaged or incorrect items. See our <a href="/policies/refund-policy">return policy</a>.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {%- assign related = collections[product.collections.first.handle].products | where: 'available', true -%}
+    {%- if related.size > 1 -%}
+      <div class="related-products">
+        <div class="section-header align-left reveal">
+          <h2 class="section-heading">You May Also Like</h2>
+        </div>
+        <div class="product-grid reveal-stagger" style="--cols-desktop:4;--cols-mobile:2;">
+          {%- assign count = 0 -%}
+          {%- for related_product in related -%}
+            {%- if related_product.id != product.id and count < 4 -%}
+              {% render 'product-card', product: related_product %}
+              {%- assign count = count | plus: 1 -%}
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<div class="sticky-atc" data-sticky-atc>
+  <img src="{{ product.featured_image | image_url: width: 100 }}" alt="" width="44" height="44" style="border-radius:8px;object-fit:cover;">
+  <div style="flex:1;">
+    <div style="font-size:13px;font-weight:700;">{{ product.title | truncate: 28 }}</div>
+    <div style="font-size:13px;color:var(--color-muted);">{{ current_variant.price | money }}</div>
+  </div>
+  {%- if settings.enable_whatsapp_order and settings.whatsapp_number != blank -%}
+    <a href="{{ whatsapp_href }}" class="btn btn-sm" style="background:#25D366;color:#fff;" target="_blank" rel="noopener">{% render 'icon', name: 'whatsapp' %}</a>
+  {%- endif -%}
+  <button type="submit" form="ProductForm" class="btn btn-secondary btn-sm" {% unless current_variant.available %}disabled{% endunless %}>Add to Cart</button>
+</div>
+
+{% schema %}
+{
+  "name": "Product page",
+  "settings": []
+}
+{% endschema %}

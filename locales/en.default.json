@@ -1,0 +1,24 @@
+{
+  "general": {
+    "search": {
+      "placeholder": "Search products…",
+      "no_results": "No results found"
+    },
+    "cart": {
+      "title": "Your Cart",
+      "empty": "Your cart is empty."
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to Cart",
+      "sold_out": "Sold out",
+      "unavailable": "Unavailable"
+    }
+  },
+  "customer": {
+    "login_page": {
+      "title": "Sign In"
+    }
+  }
+}

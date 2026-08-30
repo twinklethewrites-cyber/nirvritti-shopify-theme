@@ -1,0 +1,37 @@
+{%- comment -%} Site-wide floating WhatsApp button. Controlled by Theme settings → WhatsApp ordering. {%- endcomment -%}
+{%- if settings.enable_whatsapp_order and settings.whatsapp_floating_button and settings.whatsapp_number != blank -%}
+  {%- assign wa_message = settings.whatsapp_message | default: 'Hi Nirvritti! I would like to know more about your chocolates.' | replace: '[product]', 'your chocolates' | replace: '[url]', shop.url -%}
+  {%- assign wa_message_encoded = wa_message | url_encode -%}
+  <a
+    href="https://wa.me/{{ settings.whatsapp_number }}?text={{ wa_message_encoded }}"
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener"
+    aria-label="Chat with us on WhatsApp"
+  >
+    {% render 'icon', name: 'whatsapp' %}
+  </a>
+  <style>
+    .whatsapp-float {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #25D366;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-medium);
+      z-index: 80;
+      transition: transform var(--dur-fast) var(--ease);
+    }
+    .whatsapp-float:hover { transform: scale(1.08); }
+    .whatsapp-float .icon { width: 28px; height: 28px; }
+    @media (max-width: 749px) {
+      .whatsapp-float { right: 14px; bottom: 14px; width: 50px; height: 50px; }
+    }
+  </style>
+{%- endif -%}
