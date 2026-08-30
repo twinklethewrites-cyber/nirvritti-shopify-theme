@@ -1,30 +1,54 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "hero": { "type": "hero" },
-    "why-nirvritti": { "type": "why-nirvritti" },
-    "shop-fit-root": { "type": "shop-fit-root" },
-    "best-sellers": { "type": "best-sellers" },
-    "fit-root-story": { "type": "fit-root-story" },
-    "shop-by-lifestyle": { "type": "shop-by-lifestyle" },
-    "kids-collection": { "type": "kids-collection" },
-    "cupid-gifting": { "type": "cupid-gifting" },
-    "ingredients-quality": { "type": "ingredients-quality" },
-    "brand-story": { "type": "brand-story" },
-    "testimonials": { "type": "testimonials" },
-    "social-instagram": { "type": "social-instagram" }
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "heading": "Chocolate, Reimagined by Nature.",
+        "subheading": "Discover thoughtfully crafted chocolates made with natural ingredients, created for energy, wellness, little ones and life's special moments.",
+        "primary_label": "Shop FIT-ROOT",
+        "primary_link": "",
+        "secondary_label": "Discover Our Story",
+        "secondary_link": "",
+        "text_align": "left",
+        "overlay_opacity": 35,
+        "height": 680
+      }
+    },
+    "brand_story_KaKRCt": {
+      "type": "brand-story",
+      "name": "Brand story",
+      "settings": {
+        "logo": "shopify://shop_images/close-up-of-a-bao-bun-on-a-wooden-table.jpg",
+        "heading": "Nature's Healing Touch",
+        "text": "Nirvritti brings together thoughtful ingredients, natural inspiration and modern living to create products made with care.",
+        "button_label": "Discover Nirvritti",
+        "button_link": ""
+      }
+    },
+    "cupid_gifting_76Ve44": {
+      "type": "cupid-gifting",
+      "name": "Cupid / Gifting",
+      "settings": {
+        "eyebrow": "Cupid Collection",
+        "heading": "Made for Sharing.",
+        "text": "A little sweetness for the moments worth celebrating.",
+        "button_label": "Shop Cupid",
+        "button_link": ""
+      }
+    }
   },
   "order": [
     "hero",
-    "why-nirvritti",
-    "shop-fit-root",
-    "best-sellers",
-    "fit-root-story",
-    "shop-by-lifestyle",
-    "kids-collection",
-    "cupid-gifting",
-    "ingredients-quality",
-    "brand-story",
-    "testimonials",
-    "social-instagram"
+    "brand_story_KaKRCt",
+    "cupid_gifting_76Ve44"
   ]
 }
