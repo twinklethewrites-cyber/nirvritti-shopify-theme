@@ -148,7 +148,7 @@
           "settings": {
             "heading": "Best Sellers",
             "subheading": "Thoughtfully chosen essentials for your everyday wellness routine.",
-            "collection": "",
+            "collection": "best-sellers",
             "product_count": 4,
             "add_button_label": "Add to cart",
             "view_button_label": "View product",
