@@ -23,6 +23,117 @@
         "height": 680
       }
     },
+    "why_nirvritti_c6RUGc": {
+      "type": "why-nirvritti",
+      "blocks": {
+        "value_rkBBJA": {
+          "type": "value",
+          "settings": {
+            "icon": "leaf",
+            "title": "15 Natural Ingredients",
+            "text": "Cocoa blended with dates, almonds, seeds and more — nothing artificial.",
+            "link": ""
+          }
+        },
+        "value_NQg8hQ": {
+          "type": "value",
+          "settings": {
+            "icon": "heart",
+            "title": "Handmade With Care",
+            "text": "Freshly made in small batches and quality checked before it reaches you.",
+            "link": ""
+          }
+        },
+        "value_RKJyUj": {
+          "type": "value",
+          "settings": {
+            "icon": "shield",
+            "title": "Thoughtfully Crafted",
+            "text": "No preservatives, no artificial flavour, no palm oil.",
+            "link": ""
+          }
+        },
+        "value_3MtjeV": {
+          "type": "value",
+          "settings": {
+            "icon": "gift",
+            "title": "Something For Everyone",
+            "text": "Energy, gifting, kids and everyday care — one brand, every moment.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "value_rkBBJA",
+        "value_NQg8hQ",
+        "value_RKJyUj",
+        "value_3MtjeV"
+      ],
+      "name": "Why Nirvritti",
+      "settings": {
+        "eyebrow": "Why Nirvritti",
+        "heading": "What Makes Us Different",
+        "subheading": ""
+      }
+    },
+    "shop_fit_root_W3XKXc": {
+      "type": "shop-fit-root",
+      "blocks": {
+        "category_ARJMtX": {
+          "type": "category",
+          "settings": {
+            "title": "Energy",
+            "text": "Beat Box & On-The-Go",
+            "link": ""
+          }
+        },
+        "category_Fbyz3U": {
+          "type": "category",
+          "settings": {
+            "title": "Love",
+            "text": "Cupid",
+            "link": ""
+          }
+        },
+        "category_pVcqpB": {
+          "type": "category",
+          "settings": {
+            "title": "Kids",
+            "text": "Tiny Cubs, Mini Hearts & Jurassic Bites",
+            "link": ""
+          }
+        },
+        "category_xFM6kW": {
+          "type": "category",
+          "settings": {
+            "title": "Care",
+            "text": "Golden Care",
+            "link": ""
+          }
+        },
+        "category_RbDbKC": {
+          "type": "category",
+          "settings": {
+            "title": "Energy",
+            "text": "Beat Box & On-The-Go",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "category_ARJMtX",
+        "category_Fbyz3U",
+        "category_pVcqpB",
+        "category_xFM6kW",
+        "category_RbDbKC"
+      ],
+      "name": "Shop FIT-ROOT",
+      "settings": {
+        "eyebrow": "The FIT-ROOT Range",
+        "heading": "Find Your FIT-ROOT",
+        "subheading": "One chocolate concept, four ways to enjoy it."
+      }
+    },
     "brand_story_KaKRCt": {
       "type": "brand-story",
       "name": "Brand story",
@@ -139,64 +250,6 @@
         "button_link": ""
       }
     },
-    "shop_fit_root_W3XKXc": {
-      "type": "shop-fit-root",
-      "blocks": {
-        "category_ARJMtX": {
-          "type": "category",
-          "settings": {
-            "title": "Energy",
-            "text": "Beat Box & On-The-Go",
-            "link": ""
-          }
-        },
-        "category_Fbyz3U": {
-          "type": "category",
-          "settings": {
-            "title": "Love",
-            "text": "Cupid",
-            "link": ""
-          }
-        },
-        "category_pVcqpB": {
-          "type": "category",
-          "settings": {
-            "title": "Kids",
-            "text": "Tiny Cubs, Mini Hearts & Jurassic Bites",
-            "link": ""
-          }
-        },
-        "category_xFM6kW": {
-          "type": "category",
-          "settings": {
-            "title": "Care",
-            "text": "Golden Care",
-            "link": ""
-          }
-        },
-        "category_RbDbKC": {
-          "type": "category",
-          "settings": {
-            "title": "Energy",
-            "text": "Beat Box & On-The-Go",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "category_ARJMtX",
-        "category_Fbyz3U",
-        "category_pVcqpB",
-        "category_xFM6kW",
-        "category_RbDbKC"
-      ],
-      "name": "Shop FIT-ROOT",
-      "settings": {
-        "eyebrow": "The FIT-ROOT Range",
-        "heading": "Find Your FIT-ROOT",
-        "subheading": "One chocolate concept, four ways to enjoy it."
-      }
-    },
     "shop_by_lifestyle_PdN6AH": {
       "type": "shop-by-lifestyle",
       "blocks": {
@@ -249,69 +302,21 @@
         "heading": "What Are You Looking For Today?"
       }
     },
-    "why_nirvritti_c6RUGc": {
-      "type": "why-nirvritti",
-      "blocks": {
-        "value_rkBBJA": {
-          "type": "value",
-          "settings": {
-            "icon": "leaf",
-            "title": "15 Natural Ingredients",
-            "text": "Cocoa blended with dates, almonds, seeds and more — nothing artificial.",
-            "link": ""
-          }
-        },
-        "value_NQg8hQ": {
-          "type": "value",
-          "settings": {
-            "icon": "heart",
-            "title": "Handmade With Care",
-            "text": "Freshly made in small batches and quality checked before it reaches you.",
-            "link": ""
-          }
-        },
-        "value_RKJyUj": {
-          "type": "value",
-          "settings": {
-            "icon": "shield",
-            "title": "Thoughtfully Crafted",
-            "text": "No preservatives, no artificial flavour, no palm oil.",
-            "link": ""
-          }
-        },
-        "value_3MtjeV": {
-          "type": "value",
-          "settings": {
-            "icon": "gift",
-            "title": "Something For Everyone",
-            "text": "Energy, gifting, kids and everyday care — one brand, every moment.",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "value_rkBBJA",
-        "value_NQg8hQ",
-        "value_RKJyUj",
-        "value_3MtjeV"
-      ],
-      "name": "Why Nirvritti",
-      "settings": {
-        "eyebrow": "Why Nirvritti",
-        "heading": "What Makes Us Different",
-        "subheading": ""
-      }
+    "1788112256538f4d38": {
+      "type": "_blocks",
+      "settings": {}
     }
   },
   "order": [
     "hero",
     "why_nirvritti_c6RUGc",
+    "shop_fit_root_W3XKXc",
     "brand_story_KaKRCt",
     "cupid_gifting_76Ve44",
     "fit_root_story_7VEB4a",
     "ingredients_quality_RxhD7G",
     "kids_collection_8VN8hz",
-    "shop_fit_root_W3XKXc",
-    "shop_by_lifestyle_PdN6AH"
+    "shop_by_lifestyle_PdN6AH",
+    "1788112256538f4d38"
   ]
 }
