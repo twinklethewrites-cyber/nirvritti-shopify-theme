@@ -1,6 +1,40 @@
-{% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
-{% endschema %}
+{% doc %}
+  @prompt
+    Create a premium, elegant, continuously scrolling marquee strip that appears across ALL pages of the Shopify website.
+    
+    Purpose:
+    Build trust and communicate the product’s quality and approximate nutritional profile.
+    
+    Use this exact text:
+    
+    LAB TESTED FOR QUALITY ✦ THOUGHTFULLY CRAFTED ✦ MADE FOR MINDFUL INDULGENCE ✦ APPROX. NUTRITIONAL VALUES PER 100 g ✦ 10.5 g PROTEIN ✦ 9.7 g DIETARY FIBER ✦ <1 g ADDED SUGAR ✦ <0.1 g TRANS FAT ✦ <1 mg CHOLESTEROL ✦ 14 mg SODIUM
+    
+    Design requirements:
+    - Full-width horizontal marquee strip
+    - Smooth, seamless, infinite scrolling animation
+    - Premium health/wellness + chocolate brand aesthetic
+    - Clean typography with excellent readability
+    - Subtle separators such as ✦ between each message
+    - Keep the strip slim and elegant, not oversized
+    - Make it responsive for desktop, tablet and mobile
+    - Ensure the text does not wrap on mobile
+    - Maintain smooth animation without noticeable jumps or gaps
+    - Pause scrolling slightly on hover if appropriate
+    - The strip should work consistently across every page
+    - Make the section configurable from Shopify Theme Customizer if possible
+    - Allow adjustment of scrolling speed, font size, spacing and background/text colors
+    - Keep the implementation lightweight and performance-friendly
+    
+    IMPORTANT:
+    The nutritional values are approximate and are based on the available laboratory-tested Fit-Root Energy sample. Do NOT imply that these exact nutritional values apply to all six chocolate products unless individual product testing supports that claim.
+    
+    Make the final design feel premium, trustworthy, modern and suitable for a high-end healthy chocolate/snacking brand.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+{% style %}
+.ai-marquee-{{ ai_gen_id }}{display:block;width:100%;max-width:100%;overflow:hidden;background:{{ block.settings.background_color }};color:{{ block.settings.text_color }};border-top:1px solid {{ block.settings.border_color }};border-bottom:1px solid {{ block.settings.border_color }}}
+.ai-marquee__viewport-{{ ai_gen_id }}{width:{{ block.settings.desktop_width_percent }}%;max-width:100%;overflow:hidden;margin:0 auto}.ai-marquee__track-{{ ai_gen_id }}{display:flex;width:max-content;will-change:transform;animation:ai-marquee-scroll-{{ ai_gen_id }} {{ block.settings.scroll_duration }}s linear infinite}.ai-marquee__group-{{ ai_gen_id }}{display:flex;flex-shrink:0;align-items:center;gap:{{ block.settings.item_spacing }}px;padding:{{ block.settings.vertical_padding }}px 0;white-space:nowrap}.ai-marquee__item-{{ ai_gen_id }}{display:inline-flex;align-items:center;gap:{{ block.settings.item_spacing }}px;font-family:{{ block.settings.text_font.family }},{{ block.settings.text_font.fallback_families }};font-size:{{ block.settings.font_size }}px;font-weight:{{ block.settings.font_weight }};letter-spacing:{{ block.settings.letter_spacing }}px;line-height:1.3;text-transform:{{ block.settings.text_transform }}}.ai-marquee__separator-{{ ai_gen_id }}{color:{{ block.settings.separator_color }};font-size:.85em}.ai-marquee:hover .ai-marquee__track-{{ ai_gen_id }}{animation-play-state:paused}@keyframes ai-marquee-scroll-{{ ai_gen_id }}{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}@media screen and (max-width:749px){.ai-marquee__viewport-{{ ai_gen_id }}{width:100%}.ai-marquee__group-{{ ai_gen_id }}{gap:{{ block.settings.item_spacing | times: 0.75 }}px;padding:{{ block.settings.vertical_padding | times: 0.8 }}px 0}.ai-marquee__item-{{ ai_gen_id }}{gap:{{ block.settings.item_spacing | times: 0.75 }}px;font-size:{{ block.settings.font_size | times: 0.9 }}px}}@media (prefers-reduced-motion:reduce){.ai-marquee__track-{{ ai_gen_id }}{animation:none;transform:translate3d(0,0,0)}}
+{% endstyle %}
+<continuous-marquee-{{ ai_gen_id }} class="ai-marquee-{{ ai_gen_id }}" role="region" aria-label="{{ block.settings.marquee_text | escape }}" {{ block.shopify_attributes }}><div class="ai-marquee__viewport-{{ ai_gen_id }}"><div class="ai-marquee__track-{{ ai_gen_id }}">{% for copy in (1..2) %}<div class="ai-marquee__group-{{ ai_gen_id }}" aria-hidden="{% if copy == 2 %}true{% else %}false{% endif %}">{% assign messages = block.settings.marquee_text | split: ' ✦ ' %}{% for message in messages %}<span class="ai-marquee__item-{{ ai_gen_id }}">{{ message | escape }}{% unless forloop.last %}<span class="ai-marquee__separator-{{ ai_gen_id }}" aria-hidden="true">✦</span>{% endunless %}</span>{% endfor %}</div>{% endfor %}</div></div></continuous-marquee-{{ ai_gen_id }}>
+<script>(function(){if(customElements.get('continuous-marquee-{{ ai_gen_id }}'))return;class ContinuousMarquee{{ ai_gen_id }} extends HTMLElement{}customElements.define('continuous-marquee-{{ ai_gen_id }}',ContinuousMarquee{{ ai_gen_id }});})();</script>
+{% schema %}{"name":"Premium marquee","settings":[{"type":"textarea","id":"marquee_text","label":"Messages","default":"LAB TESTED FOR QUALITY ✦ THOUGHTFULLY CRAFTED ✦ MADE FOR MINDFUL INDULGENCE ✦ APPROX. NUTRITIONAL VALUES PER 100 g ✦ 10.5 g PROTEIN ✦ 9.7 g DIETARY FIBER ✦ <1 g ADDED SUGAR ✦ <0.1 g TRANS FAT ✦ <1 mg CHOLESTEROL ✦ 14 mg SODIUM"},{"type":"font_picker","id":"text_font","label":"Font","default":"sans-serif"},{"type":"range","id":"desktop_width_percent","label":"Desktop width","min":50,"max":100,"step":5,"unit":"%","default":100},{"type":"range","id":"scroll_duration","label":"Scroll duration","min":15,"max":90,"step":5,"unit":"s","default":45},{"type":"range","id":"font_size","label":"Font size","min":10,"max":20,"step":1,"unit":"px","default":12},{"type":"range","id":"item_spacing","label":"Spacing","min":12,"max":60,"step":4,"unit":"px","default":28},{"type":"range","id":"vertical_padding","label":"Vertical padding","min":4,"max":20,"step":2,"unit":"px","default":8},{"type":"select","id":"font_weight","label":"Weight","options":[{"value":"400","label":"Regular"},{"value":"500","label":"Medium"},{"value":"600","label":"Semibold"}],"default":"500"},{"type":"select","id":"text_transform","label":"Letter case","options":[{"value":"none","label":"As entered"},{"value":"uppercase","label":"Uppercase"}],"default":"none"},{"type":"range","id":"letter_spacing","label":"Letter spacing","min":0,"max":2,"step":0.5,"unit":"px","default":0.5},{"type":"color","id":"background_color","label":"Background","default":"#261711"},{"type":"color","id":"text_color","label":"Text","default":"#FFF8EE"},{"type":"color","id":"separator_color","label":"Separators","default":"#D8A86E"},{"type":"color","id":"border_color","label":"Borders","default":"#694637"}],"presets":[{"name":"Premium marquee"}],"tag":null,"class":"premium-marquee-block"}{% endschema %}
