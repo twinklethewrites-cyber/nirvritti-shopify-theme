@@ -448,6 +448,35 @@
         "eyebrow": "Loved By Customers",
         "heading": "What People Are Saying"
       }
+    },
+    "17881733096fbef439": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_b90a68b_3wwUkL": {
+          "type": "ai_gen_block_b90a68b",
+          "settings": {
+            "marquee_text": "LAB TESTED FOR QUALITY ✦ THOUGHTFULLY CRAFTED ✦ MADE FOR MINDFUL INDULGENCE ✦ APPROX. NUTRITIONAL VALUES PER 100 g ✦ 10.5 g PROTEIN ✦ 9.7 g DIETARY FIBER ✦ <1 g ADDED SUGAR ✦ <0.1 g TRANS FAT ✦ <1 mg CHOLESTEROL ✦ 14 mg SODIUM",
+            "text_font": "system_ui_n4",
+            "desktop_width_percent": 100,
+            "scroll_duration": 45,
+            "font_size": 12,
+            "item_spacing": 28,
+            "vertical_padding": 8,
+            "font_weight": "500",
+            "text_transform": "none",
+            "letter_spacing": 0.5,
+            "background_color": "#19384D",
+            "text_color": "#FFF8EE",
+            "separator_color": "#D8A86E",
+            "border_color": "#694637"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_b90a68b_3wwUkL"
+      ],
+      "settings": {}
     }
   },
   "order": [
@@ -462,6 +491,7 @@
     "ingredients_quality_RxhD7G",
     "brand_story_KaKRCt",
     "social_instagram_tA4fPE",
-    "testimonials_GjAQnz"
+    "testimonials_GjAQnz",
+    "17881733096fbef439"
   ]
 }
