@@ -465,9 +465,9 @@
             "font_weight": "600",
             "text_transform": "none",
             "letter_spacing": 0.5,
-            "background_color": "#19384D",
-            "text_color": "#FFF8EE",
-            "separator_color": "#D8A86E",
+            "background_color": "#19384d",
+            "text_color": "#fff8ee",
+            "separator_color": "#d8a86e",
             "border_color": "#694637"
           },
           "blocks": {}
@@ -475,6 +475,56 @@
       },
       "block_order": [
         "ai_gen_block_b90a68b_3wwUkL"
+      ],
+      "settings": {}
+    },
+    "1788173806e8844d98": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_8942931_rT6GAH": {
+          "type": "ai_gen_block_8942931",
+          "settings": {
+            "heading": "What are you looking for today?",
+            "intro": "Find the chocolate made for your moment.",
+            "link_label": "Explore",
+            "alignment": "center",
+            "desktop_width_percent": 100,
+            "heading_size": 34,
+            "section_padding": 40,
+            "mobile_padding": 25,
+            "card_gap": 16,
+            "card_radius": 14,
+            "heading_color": "#19384D",
+            "text_color": "#19384D",
+            "card_background": "#FFF9F2",
+            "card_border": "#E4CDBB",
+            "card_text_color": "#321C12",
+            "card_muted_color": "#19384D",
+            "link_color": "#19384D",
+            "image_background": "#D0E9C0",
+            "focus_color": "#19384D",
+            "card_1_title": "⚡ I need energy",
+            "card_1_description": "For busy days & active lifestyles",
+            "card_1_image": "shopify://shop_images/product-onthego-1.webp",
+            "card_1_link": "shopify://products/fit-root-on-the-go",
+            "card_2_title": "♥ I'm buying for someone",
+            "card_2_description": "For celebrations & thoughtful gifting",
+            "card_2_image": "shopify://shop_images/product-tinycubs-2.webp",
+            "card_2_link": "shopify://products/fit-root-mini-hearts",
+            "card_3_title": "🦖 For my little one",
+            "card_3_description": "Fun shapes. Chocolate they'll love.",
+            "card_3_image": "shopify://shop_images/product-cupid-editorial.jpg",
+            "card_3_link": "shopify://products/fit-root-jurassic-bites",
+            "card_4_title": "🌿 Everyday care",
+            "card_4_description": "A thoughtful choice for everyday moments.",
+            "card_4_image": "shopify://shop_images/product-beatbox-1.webp",
+            "card_4_link": "shopify://products/fit-root-beat-box"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_8942931_rT6GAH"
       ],
       "settings": {}
     }
@@ -487,6 +537,7 @@
     "fit_root_story_7VEB4a",
     "shop_by_lifestyle_PdN6AH",
     "kids_collection_8VN8hz",
+    "1788173806e8844d98",
     "cupid_gifting_76Ve44",
     "ingredients_quality_RxhD7G",
     "brand_story_KaKRCt",
