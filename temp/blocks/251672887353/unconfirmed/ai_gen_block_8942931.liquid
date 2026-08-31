@@ -1,6 +1,283 @@
+{% doc %}
+  @prompt
+    Create a "Choose Your Chocolate" experience
+    
+    This is one of the strongest things you already have, and I'd make it more interactive.
+    
+    You currently have:
+    
+    What Are You Looking For Today?
+    
+    with Energy / Someone Special / Little One / Everyday Care.
+    
+    Turn it into four large visual cards:
+    
+    ⚡ I NEED ENERGY
+    
+    For busy days & active lifestyles
+    
+    EXPLORE →
+    
+    ❤️ I'M BUYING FOR SOMEONE
+    
+    For celebrations & thoughtful gifting
+    
+    EXPLORE →
+    
+    🦖 FOR MY LITTLE ONE
+    
+    Fun shapes. Chocolate they'll love.
+    
+    EXPLORE →
+    
+    🌿 EVERYDAY CARE
+    
+    A thoughtful choice for everyday moments.
+    
+    EXPLORE →
+    
+    Add a subtle hover animation where the product image moves/zooms.
+    
+    This could become one of the website's signature interactions.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-chocolate-chooser-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: {{ block.settings.section_padding }}px 0;
+  }
+
+  .ai-chocolate-chooser-{{ ai_gen_id }}__inner {
+    width: 100%;
+  }
+
+  .ai-chocolate-chooser-{{ ai_gen_id }}__heading {
+    margin: 0 0 10px;
+    color: {{ block.settings.heading_color }};
+    font-size: {{ block.settings.heading_size }}px;
+    line-height: 1.15;
+    text-align: {{ block.settings.alignment }};
+  }
+
+  .ai-chocolate-chooser-{{ ai_gen_id }}__intro {
+    max-width: 620px;
+    margin: 0 auto 28px;
+    color: {{ block.settings.text_color }};
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: {{ block.settings.alignment }};
+  }
+
+  .ai-chocolate-chooser-{{ ai_gen_id }}__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: {{ block.settings.card_gap }}px;
+  }
+
+  .ai-chocolate-card-{{ ai_gen_id }} {
+    display: flex;
+    min-width: 0;
+    overflow: hidden;
+    flex-direction: column;
+    background: {{ block.settings.card_background }};
+    border: 1px solid {{ block.settings.card_border }};
+    border-radius: {{ block.settings.card_radius }}px;
+    color: {{ block.settings.card_text_color }};
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(40, 24, 16, 0.06);
+    transition: box-shadow 220ms ease, transform 220ms ease;
+  }
+
+  .ai-chocolate-card-{{ ai_gen_id }}:hover,
+  .ai-chocolate-card-{{ ai_gen_id }}:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(40, 24, 16, 0.14);
+  }
+
+  .ai-chocolate-card-{{ ai_gen_id }}:focus-visible {
+    outline: 3px solid {{ block.settings.focus_color }};
+    outline-offset: 3px;
+  }
+
+  .ai-chocolate-card-{{ ai_gen_id }}__media {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    background: {{ block.settings.image_background }};
+  }
+
+  .ai-chocolate-card-{{ ai_gen_id }}__media img,
+  .ai-chocolate-card-{{ ai_gen_id }}__media svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 450ms ease;
+  }
+
+  .ai-chocolate-card-{{ ai_gen_id }}:hover .ai-chocolate-card-{{ ai_gen_id }}__media img,
+  .ai-chocolate-card-{{ ai_gen_id }}:focus-visible .ai-chocolate-card-{{ ai_gen_id }}__media img {
+    transform: scale(1.06);
+  }
+
+  .ai-chocolate-card-{{ ai_gen_id }}__content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 20px 18px 22px;
+  }
+
+  .ai-chocolate-card-{{ ai_gen_id }}__title {
+    margin: 0 0 8px;
+    font-size: 18px;
+    line-height: 1.2;
+    letter-spacing: 0.03em;
+  }
+
+  .ai-chocolate-card-{{ ai_gen_id }}__description {
+    margin: 0 0 18px;
+    color: {{ block.settings.card_muted_color }};
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .ai-chocolate-card-{{ ai_gen_id }}__link {
+    margin-top: auto;
+    color: {{ block.settings.link_color }};
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  @media screen and (max-width: 989px) {
+    .ai-chocolate-chooser-{{ ai_gen_id }}__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (max-width: 549px) {
+    .ai-chocolate-chooser-{{ ai_gen_id }} {
+      padding: {{ block.settings.mobile_padding }}px 0;
+    }
+
+    .ai-chocolate-chooser-{{ ai_gen_id }}__grid {
+      gap: 12px;
+    }
+
+    .ai-chocolate-card-{{ ai_gen_id }}__content {
+      padding: 15px 13px 17px;
+    }
+
+    .ai-chocolate-card-{{ ai_gen_id }}__title {
+      font-size: 15px;
+    }
+
+    .ai-chocolate-card-{{ ai_gen_id }}__description {
+      font-size: 13px;
+    }
+  }
+{% endstyle %}
+
+<chocolate-chooser-{{ ai_gen_id }} class="ai-chocolate-chooser-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-chocolate-chooser-{{ ai_gen_id }}__inner">
+    {% if block.settings.heading != blank %}<h2 class="ai-chocolate-chooser-{{ ai_gen_id }}__heading">{{ block.settings.heading }}</h2>{% endif %}
+    {% if block.settings.intro != blank %}<p class="ai-chocolate-chooser-{{ ai_gen_id }}__intro">{{ block.settings.intro }}</p>{% endif %}
+    <div class="ai-chocolate-chooser-{{ ai_gen_id }}__grid">
+      {% for i in (1..4) %}
+        {% liquid
+          assign title_key = 'card_' | append: i | append: '_title'
+          assign description_key = 'card_' | append: i | append: '_description'
+          assign image_key = 'card_' | append: i | append: '_image'
+          assign link_key = 'card_' | append: i | append: '_link'
+          assign title = block.settings[title_key]
+          assign description = block.settings[description_key]
+          assign image = block.settings[image_key]
+          assign link = block.settings[link_key]
+        %}
+        <a class="ai-chocolate-card-{{ ai_gen_id }}" href="{{ link | default: '#' }}">
+          <div class="ai-chocolate-card-{{ ai_gen_id }}__media">
+            {% if image %}
+              <img src="{{ image | image_url: width: 800 }}" alt="{{ image.alt | default: title | escape }}" loading="lazy" width="800" height="800">
+            {% else %}
+              {{ 'image' | placeholder_svg_tag }}
+            {% endif %}
+          </div>
+          <div class="ai-chocolate-card-{{ ai_gen_id }}__content">
+            <h3 class="ai-chocolate-card-{{ ai_gen_id }}__title">{{ title }}</h3>
+            <p class="ai-chocolate-card-{{ ai_gen_id }}__description">{{ description }}</p>
+            <span class="ai-chocolate-card-{{ ai_gen_id }}__link">{{ block.settings.link_label }} →</span>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</chocolate-chooser-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class ChocolateChooser{{ ai_gen_id }} extends HTMLElement {
+      connectedCallback() {
+        this.querySelectorAll('a').forEach((card) => {
+          card.addEventListener('click', (event) => {
+            if (card.getAttribute('href') === '#') event.preventDefault();
+          });
+        });
+      }
+    }
+    if (!customElements.get('chocolate-chooser-{{ ai_gen_id }}')) customElements.define('chocolate-chooser-{{ ai_gen_id }}', ChocolateChooser{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Chocolate chooser",
+  "tag": null,
+  "class": "chocolate-chooser-block",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What are you looking for today?" },
+    { "type": "textarea", "id": "intro", "label": "Intro", "default": "Find the chocolate made for your moment." },
+    { "type": "text", "id": "link_label", "label": "Link label", "default": "Explore" },
+    { "type": "select", "id": "alignment", "label": "Alignment", "options": [{ "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }], "default": "center" },
+    { "type": "range", "id": "desktop_width_percent", "label": "Desktop width", "min": 50, "max": 100, "step": 5, "unit": "%", "default": 100 },
+    { "type": "range", "id": "heading_size", "label": "Heading size", "min": 20, "max": 56, "step": 2, "unit": "px", "default": 34 },
+    { "type": "range", "id": "section_padding", "label": "Section padding", "min": 0, "max": 80, "step": 5, "unit": "px", "default": 40 },
+    { "type": "range", "id": "mobile_padding", "label": "Mobile padding", "min": 0, "max": 50, "step": 5, "unit": "px", "default": 25 },
+    { "type": "range", "id": "card_gap", "label": "Card gap", "min": 8, "max": 32, "step": 4, "unit": "px", "default": 16 },
+    { "type": "range", "id": "card_radius", "label": "Card radius", "min": 0, "max": 28, "step": 2, "unit": "px", "default": 14 },
+    { "type": "color", "id": "heading_color", "label": "Heading color", "default": "#321C12" },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#57382A" },
+    { "type": "color", "id": "card_background", "label": "Card background", "default": "#FFF9F2" },
+    { "type": "color", "id": "card_border", "label": "Card border", "default": "#E4CDBB" },
+    { "type": "color", "id": "card_text_color", "label": "Card text", "default": "#321C12" },
+    { "type": "color", "id": "card_muted_color", "label": "Card description", "default": "#684B3C" },
+    { "type": "color", "id": "link_color", "label": "Link color", "default": "#7A351F" },
+    { "type": "color", "id": "image_background", "label": "Image background", "default": "#F2E4D5" },
+    { "type": "color", "id": "focus_color", "label": "Focus outline", "default": "#5B2A1D" },
+    { "type": "header", "content": "Card 1" },
+    { "type": "text", "id": "card_1_title", "label": "Title", "default": "⚡ I need energy" },
+    { "type": "textarea", "id": "card_1_description", "label": "Description", "default": "For busy days & active lifestyles" },
+    { "type": "image_picker", "id": "card_1_image", "label": "Image" },
+    { "type": "url", "id": "card_1_link", "label": "Link" },
+    { "type": "header", "content": "Card 2" },
+    { "type": "text", "id": "card_2_title", "label": "Title", "default": "♥ I'm buying for someone" },
+    { "type": "textarea", "id": "card_2_description", "label": "Description", "default": "For celebrations & thoughtful gifting" },
+    { "type": "image_picker", "id": "card_2_image", "label": "Image" },
+    { "type": "url", "id": "card_2_link", "label": "Link" },
+    { "type": "header", "content": "Card 3" },
+    { "type": "text", "id": "card_3_title", "label": "Title", "default": "🦖 For my little one" },
+    { "type": "textarea", "id": "card_3_description", "label": "Description", "default": "Fun shapes. Chocolate they'll love." },
+    { "type": "image_picker", "id": "card_3_image", "label": "Image" },
+    { "type": "url", "id": "card_3_link", "label": "Link" },
+    { "type": "header", "content": "Card 4" },
+    { "type": "text", "id": "card_4_title", "label": "Title", "default": "🌿 Everyday care" },
+    { "type": "textarea", "id": "card_4_description", "label": "Description", "default": "A thoughtful choice for everyday moments." },
+    { "type": "image_picker", "id": "card_4_image", "label": "Image" },
+    { "type": "url", "id": "card_4_link", "label": "Link" }
+  ],
+  "presets": [{ "name": "Chocolate chooser" }]
+}
 {% endschema %}
